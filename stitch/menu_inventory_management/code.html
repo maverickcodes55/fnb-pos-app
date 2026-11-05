@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#e0d9d3","primary-fixed":"#ffdbcf","surface-bright":"#fff8f4","primary":"#a43700","secondary-container":"#a0f399","error-container":"#ffdad6","on-surface":"#1e1b18","on-secondary-container":"#217128","surface-container":"#f4ece7","tertiary":"#805200","on-error":"#ffffff","on-surface-variant":"#5a4138","tertiary-container":"#a16800","inverse-surface":"#33302c","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","surface-container-high":"#eee7e1","on-primary-container":"#fffbff","surface-container-low":"#faf2ed","tertiary-fixed":"#ffddb5","on-primary-fixed-variant":"#802a00","on-secondary-fixed-variant":"#005312","primary-container":"#cd4700","primary-fixed-dim":"#ffb59a","surface-container-highest":"#e9e1dc","on-secondary":"#ffffff","surface-tint":"#a83900","tertiary-fixed-dim":"#ffb957","on-primary":"#ffffff","inverse-primary":"#ffb59a","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-container":"#fffbff","outline-variant":"#e3bfb2","secondary-fixed":"#a3f69c","background":"#fff8f4","outline":"#8f7066","on-tertiary-fixed":"#2a1800","on-secondary-fixed":"#002204","surface":"#fff8f4","inverse-on-surface":"#f7efea","surface-variant":"#e9e1dc","on-primary-fixed":"#380d00","secondary":"#1b6d24","on-background":"#1e1b18","secondary-fixed-dim":"#88d982","on-tertiary-fixed-variant":"#643f00"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin":"1.25rem","gutter":"1rem","space-xs":"0.25rem","gutter-lg":"1.5rem","space-lg":"1.5rem","gutter-sm":"0.75rem","space-xl":"2rem","margin-mobile":"0.75rem","space-md":"1rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"numeric-total":["Inter"],"numeric-price":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"label-sm":["10px",{lineHeight:"12px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"18px",fontWeight:"600"}],"numeric-total":["30px",{lineHeight:"36px",fontWeight:"700"}],"numeric-price":["16px",{lineHeight:"20px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"display-md":["26px",{lineHeight:"32px",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"22px",fontWeight:"600"}],"display-lg":["32px",{lineHeight:"40px",fontWeight:"700"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-20 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md select-none"><div class="flex flex-col items-center gap-space-sm w-full"><a class="flex flex-col items-center justify-center p-space-xs" data-path="cashier-register" href="#"><img alt="Culinary POS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh9i0TjA9MFyxvfcixFK2MD0EQLG24FyTCiiU13h7x6kiGoUVw9w05zcIi5RveGnX_oRQdcvib9XaeHGOXh5u0J15im6c06SwAuiNr-oU9KgpdwaM1M6pIQ6h-MoInUYzF4-O79wngm70rDAtUDuJBmVnWNOlO6MNrmyNjna181Hlhp_wHp8FeJlJsDpI3BujqjggFKtrJuqDqfdDAIk_-_wgbGivpQv3huOlFrShi"/></a></div><nav class="flex flex-col items-center gap-space-xs w-full px-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm"><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="cashier-register" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">KASIR</span></a><a aria-current="page" class="w-16 h-16 flex flex-col items-center justify-center gap-space-xs transition-all bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm" data-path="menu-management" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">MENU</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="categories" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">KATEGORI</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="order-history" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">PESANAN</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">PENGATURAN</span></a></nav><div class="flex flex-col items-center gap-space-sm w-full"><a class="w-16 h-12 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-all" data-path="pos-lock" href="#" title="Kunci Terminal"><span class="font-label-sm text-label-sm uppercase">KUNCI</span></a><div class="relative flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary"></span></div></div></aside><div class="pl-20"><header class="fixed top-0 left-20 right-0 h-14 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg select-none"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Stasiun 01 • Bar Utama</span><span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider">ONLINE</span></div><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-bold"><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="cashier-register" href="#">Dine In</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="order-history" href="#">Bungkus</a><a aria-current="page" class="transition-colors text-primary font-bold" data-path="menu-management" href="#">Bar Kilat</a></nav><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="font-numeric-price text-numeric-price text-tertiary">Shift #1042</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="flex flex-row w-full min-h-[calc(100vh-3.5rem)] bg-surface select-none">
+<!-- LEFT 65%: Product Table & Inventory Master Control -->
+<section class="flex flex-col w-[65%] p-margin gap-space-md min-w-0">
+<!-- Top Action Bar -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Manajemen Menu <span class="font-body-md text-on-surface-variant font-normal">(48 Item)</span></h1>
+<span class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              Semua stasiun tersinkron
+            </span>
+</div>
+<button class="flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg px-space-lg h-12 rounded-lg shadow-sm transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-lg leading-none">add</span>
+<span>+ Tambah Menu Baru</span>
+</button>
+</div>
+<!-- Filter Controls Row -->
+<div class="flex items-center justify-between gap-space-md pt-space-xs">
+<!-- Search Box -->
+<div class="relative flex-1 max-w-sm">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full h-11 pl-10 pr-14 rounded-lg bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Cari menu atau SKU..." type="text" value=""/>
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm shadow-sm">⌘K</kbd>
+</div>
+<!-- Category Dropdown -->
+<div class="relative">
+<button class="h-11 px-4 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-base text-primary">restaurant_menu</span>
+<span>Semua Kategori (5)</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<!-- Stock Status Segmented Pills -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg gap-1">
+<button class="h-9 px-3.5 rounded-md bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm transition-all" type="button">
+              Semua (48)
+            </button>
+<button class="h-9 px-3 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">
+              Stok Aman (38)
+            </button>
+<button class="h-9 px-3 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+              Stok Menipis (6)
+            </button>
+<button class="h-9 px-3 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+              Stok Habis (4)
+            </button>
+</div>
+</div>
+</div>
+<!-- Main Data Table Container -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col justify-between">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 text-on-surface-variant font-label-md text-label-md uppercase tracking-wider h-11">
+<th class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</th>
+<th class="w-14 py-2 px-2 text-center">FOTO</th>
+<th class="py-2 px-4">NAMA MENU &amp; SKU</th>
+<th class="py-2 px-4">KATEGORI</th>
+<th class="py-2 px-4 text-right">HARGA JUAL</th>
+<th class="py-2 px-4 text-center">STOK</th>
+<th class="py-2 px-4 text-center">AKTIF</th>
+<th class="py-2 px-4 text-center w-24">AKSI</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Item 1: SELECTED / ACTIVE ROW -->
+<tr class="bg-primary-fixed/30 relative hover:bg-primary-fixed/40 transition-colors group cursor-pointer">
+<td class="w-12 px-4 text-center relative">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm ring-1 ring-primary/30" data-alt="Golden crisp flaky gourmet croissant sliced open displaying fresh spicy tuna salad garnish with fresh dill and red paprika seasoning on warm ceramic slate backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDouJ2SzJqK3zVghd3t1bo0zrlDKvkJZ8AwTfJh8aMN3caDJw5KKofjXoBJba-sWF5mOP_MEcjYXyDIU116KOVEKQJcRZqx29OhD4yHt9XEwRiFGy4ThcJGgfBQZMTfKcABiy_uPRH39uY6XR8Nm0sFWvx2NkOqi1EsGvCHBV0EfR8bJ3YpHS0hO8k9Z5pM944pQhbzO7trwd6e8IKnv49rvN4S9R_s7eA1SeCUJLt8"/>
+</td>
+<td class="py-2.5 px-4 min-w-0">
+<div class="font-headline-sm text-headline-sm text-primary font-bold truncate">Spicy Tuna Croissant</div>
+<div class="font-body-sm text-body-sm font-mono text-on-surface-variant">PST-084</div>
+</td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+                    Pastry &amp; Roti Artisan
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-right font-numeric-price text-numeric-price text-on-surface font-semibold">
+                  Rp 58.000
+                </td>
+<td class="py-2.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 font-body-md text-body-md text-on-surface font-medium">
+                    14 <span class="text-on-surface-variant text-body-sm">pcs</span>
+</span>
+</td>
+<td class="py-2.5 px-4 text-center">
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</td>
+<td class="py-2.5 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-primary bg-surface-container-lowest hover:bg-primary-container hover:text-on-primary transition-all" title="Ubah" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-all" title="Hapus" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm" data-alt="Layered Spanish latte macchiato served in tall ribbed glass with condensed milk layer rich espresso shot and creamy microfoam dust with cinnamon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYcgSJs0-_vlkPqp-bVLr1fJ4a13Ou8bqyPhg7q-2Y_4CIxa7X65uhOq6_EWvfHOD-frWwZQ_UCibmZMOK_XrTUcxztrI7jFnJnJIjA19c6t2K2EiAjA7k7UNRoSgMCCco1mlMj6O1SFARGbE-6Dn5ZbXd-38799P1dBGyi6GFy1KoMEiwVEBe8B57FonzZSDA1FGDKVYzpJSMWRJ2SWHusMpKz0HDOnx7mvY3PYd7"/>
+</td>
+<td class="py-2.5 px-4 min-w-0">
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">Spanish Latte Macchiato</div>
+<div class="font-body-sm text-body-sm font-mono text-on-surface-variant">COF-012</div>
+</td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md">
+                    Kopi Spesialti
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-right font-numeric-price text-numeric-price text-on-surface font-semibold">
+                  Rp 42.000
+                </td>
+<td class="py-2.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-xs">warning</span> Sisa 3
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-center">
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</td>
+<td class="py-2.5 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" title="Ubah" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-all" title="Hapus" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm" data-alt="Artisanal French butter croissant stuffed with rich smoked beef brisket melted aged provolone cheese and caramelized sweet onions" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv0SgwbwE8vNkvXXlaxGXGI3gOWECywv0_7u7VF4JcdKmfc8rwDbO7nIfAlZ0-q82FY2xjWb3kWlrxpdqKa1PL6CAOXzMMW8moE4hwsMYRwkA7qztaDHZyqXTkZJWq8dm3eTnwCUSW_IE0nhmshFBtvhWK810KZPGNFvGEuH1a1TZhoBLfh0zPRQ6V5AG2iq5Za1VVfD3eKYM5eb_CFC0D44jsRJcr-ObqdbCvJO0A"/>
+</td>
+<td class="py-2.5 px-4 min-w-0">
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">Smoked Beef Brisket Croissant</div>
+<div class="font-body-sm text-body-sm font-mono text-on-surface-variant">PST-019</div>
+</td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+                    Pastry &amp; Roti Artisan
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-right font-numeric-price text-numeric-price text-on-surface font-semibold">
+                  Rp 68.000
+                </td>
+<td class="py-2.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 font-body-md text-body-md text-on-surface font-medium">
+                    12 <span class="text-on-surface-variant text-body-sm">pcs</span>
+</span>
+</td>
+<td class="py-2.5 px-4 text-center">
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</td>
+<td class="py-2.5 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" title="Ubah" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-all" title="Hapus" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm" data-alt="Bowl of golden shoestring French fries tossed in white truffle oil finely grated parmesan cheese flakes and chopped Italian parsley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuohYHVCH_Qn6ZvySsEvYLh6oT8Q0T9VvYuyKyuOjuwsHCun8lsYSdVb2pcMnO19V_0JNTvkv4qdjcMqMHWkZt3z_HcD9vPMZdXxniAF8Hoa_FkPjr2riRsECQjtUUa-UaocM7qouFccGUN39YsheLlgKC-X6POARNifrCGqSX8B6JadlTq4qiKC59DnD6e-gjGdUAlTsR-9Gq84YGxOot-58Rn2xs9Wt1YYQ-Y9RF"/>
+</td>
+<td class="py-2.5 px-4 min-w-0">
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">Truffle Parmesan Fries</div>
+<div class="font-body-sm text-body-sm font-mono text-on-surface-variant">MNC-031</div>
+</td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md">
+                    Menu Utama
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-right font-numeric-price text-numeric-price text-on-surface font-semibold">
+                  Rp 95.000
+                </td>
+<td class="py-2.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 font-body-md text-body-md text-on-surface font-medium">
+                    8 <span class="text-on-surface-variant text-body-sm">pcs</span>
+</span>
+</td>
+<td class="py-2.5 px-4 text-center">
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</td>
+<td class="py-2.5 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" title="Ubah" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-all" title="Hapus" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 5 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm" data-alt="Iced ceremonial matcha latte topped with velvety thick sweet cream cold foam served with glass straw on light terrazzo table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv5ZnnOieeMwp3GPJ1P68zByF_MoRhABWV3uSuBS8WFgbLC5YR_ZN7sF5huKoq_jzYQ82cGXHMaFZ1AWgKmupNgxBkEKgwOjkRDBbJPNK2NZKeIWWqX_ZxJGnywSkaCd0ZE8HSj6ZRX83jAphMJS_D2qDriuQ9oSh7Ay0uyvKRXHAiFTP1IYYEKB3cUb3uLtJ3tyKRMf_L6Wv5y4SD2PZQOcZg3HCubVVvokm-LFs6"/>
+</td>
+<td class="py-2.5 px-4 min-w-0">
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">Matcha Cold Foam Cloud</div>
+<div class="font-body-sm text-body-sm font-mono text-on-surface-variant">TEA-005</div>
+</td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">
+                    Minuman Dingin
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-right font-numeric-price text-numeric-price text-on-surface font-semibold">
+                  Rp 48.000
+                </td>
+<td class="py-2.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 font-body-md text-body-md text-on-surface font-medium">
+                    22 <span class="text-on-surface-variant text-body-sm">pcs</span>
+</span>
+</td>
+<td class="py-2.5 px-4 text-center">
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</td>
+<td class="py-2.5 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" title="Ubah" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-all" title="Hapus" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 6: OUT OF STOCK -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer opacity-75">
+<td class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm grayscale-[30%]" data-alt="Individual pistachio tart with light green whipped ganache crushed roasted Sicilian pistachios and delicate gold leaf leaf accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFNB71jX8ASa4PK-Yp4oN060W2PLMhD5QNGhLain0SO_lDkrprxJM4nR7T7xMYc7fUeeErUK9P-qmjkB5z5ZDvo6wdKr4c46sOIU5oNmUEalOY-Ea818tVR0byETkIHBS2aTwUKzpaJjWgO51UyGgLspqGZ_IHEaLlbqHJHtRW_T32vcEUS3sSULfRsr1c2DPjmsm4SOmO1ybDlIfSYH4C1aVLPwtiUz-tqkC40jXG"/>
+</td>
+<td class="py-2.5 px-4 min-w-0">
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">Classic Pistachio Tart</div>
+<div class="font-body-sm text-body-sm font-mono text-on-surface-variant">DES-008</div>
+</td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">
+                    Hidangan Penutup
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-right font-numeric-price text-numeric-price text-on-surface font-semibold">
+                  Rp 38.000
+                </td>
+<td class="py-2.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+                    0 pcs (Habis)
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-center">
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-surface-container-highest transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-0.5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</td>
+<td class="py-2.5 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" title="Ubah" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-all" title="Hapus" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 7 -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-2.5 px-2">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm" data-alt="Crispy skin pan-seared Norwegian salmon fillet plated over garlic mashed potatoes glazed asparagus and lemon butter sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgcQuc6eZrtZJQweBdAosP4uAG2ZpVnvnwGZ7KW5cOottlo5IVahIXVXcno4MLXVSN2vcr4GlnH9rf3CycIsy0fQO0CboDAcKMfDvFgul8FCuDNUvVCjueXYu4dT36SLqK-zHdpVIq6h0KLjhpXyHaKAsbcJOB0commHXUGaJMjxfn6X3OGoELUnyNjnFN5VAfcjX1-zKyx1ChfYzM3bT5sHYxquUJCy02pKu7IZan"/>
+</td>
+<td class="py-2.5 px-4 min-w-0">
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">Pan-Seared Salmon</div>
+<div class="font-body-sm text-body-sm font-mono text-on-surface-variant">MNC-042</div>
+</td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md">
+                    Menu Utama
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-right font-numeric-price text-numeric-price text-on-surface font-semibold">
+                  Rp 125.000
+                </td>
+<td class="py-2.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-xs">warning</span> Sisa 4
+                  </span>
+</td>
+<td class="py-2.5 px-4 text-center">
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</td>
+<td class="py-2.5 px-4 text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" title="Ubah" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-all" title="Hapus" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="flex items-center justify-between px-space-lg py-space-sm bg-surface-container-low/50">
+<div class="font-body-md text-body-md text-on-surface-variant">
+            Menampilkan <span class="font-semibold text-on-surface font-mono">1–7</span> dari <span class="font-semibold text-on-surface font-mono">48</span> menu
+          </div>
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span>Item per halaman:</span>
+<button class="h-8 px-2.5 rounded bg-surface-container-lowest text-on-surface font-semibold flex items-center gap-1" type="button">
+<span>10</span>
+<span class="material-symbols-outlined text-xs">arrow_drop_down</span>
+</button>
+</div>
+<!-- Page Steppers -->
+<div class="flex items-center gap-1">
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+<span>Sebelumnya</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold" type="button">
+                1
+              </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high" type="button">
+                2
+              </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high" type="button">
+                3
+              </button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high" type="button">
+                7
+              </button>
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1" type="button">
+<span>Selanjutnya</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT 35%: Slide-Over Product Edit/Create Drawer (Permanently Pinned Open) -->
+<aside class="flex flex-col w-[35%] bg-surface-container-lowest shadow-2xl relative z-10 flex-shrink-0 h-[calc(100vh-3.5rem)] sticky top-14">
+<!-- Drawer Header -->
+<div class="flex items-center justify-between px-space-lg py-space-md bg-surface-container-low/40">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Ubah Data Menu</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-wide font-bold">
+            Aktif di Katalog
+          </span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center transition-all" title="Tutup Panel" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<!-- Drawer Content (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
+<!-- Image Upload Showcase Box -->
+<div class="relative w-full h-44 rounded-xl overflow-hidden bg-surface-container-low flex flex-col items-center justify-center group shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High resolution culinary food photo of a freshly baked golden croissant filled with spicy tuna filling garnished with herbs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS6azMgn_Z1GqbbxwvfMpw0FmOhDSqVQZbubwfA9kVa-NxXHjow2YB4obd7Xi9WVoscl7Yv8Msbq3KICT7HTZmGvVrfA1rfXQGKcQs_syrYMHCvTwJVxz8Rkg4GPGxZSa7bHWfesgWedRUwT9IwRI3RGD0b7j66wDfWzfZ7cibcQOOAthnMEbva3zY7kpN3nD_2KFngOVJIYsgBoQl_Z9B-XxxbqWYJ_YgRaTLqxCb"/>
+<div class="absolute inset-0 bg-inverse-surface/30 backdrop-blur-[2px] flex flex-col items-center justify-center gap-2">
+<button class="h-10 px-4 rounded-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center gap-2 shadow-md transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-primary text-base">add_a_photo</span>
+<span>Ganti Foto</span>
+</button>
+<span class="font-body-sm text-body-sm text-surface-bright font-medium drop-shadow">PNG, JPG hingga 5MB. 800×800px</span>
+</div>
+</div>
+<!-- Menu Item Name -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+            Nama Menu <span class="text-error font-bold">*</span>
+</label>
+<input class="h-12 px-3.5 rounded-lg bg-surface-container-low focus:bg-surface-container-lowest text-on-surface font-headline-sm text-headline-sm font-semibold focus:ring-2 focus:ring-primary focus:outline-none transition-all" type="text" value="Spicy Tuna Croissant"/>
+</div>
+<!-- SKU Code & Category in 2-Column Row -->
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Kode SKU</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-lg bg-surface-container-low focus:bg-surface-container-lowest font-mono font-bold text-on-surface text-body-md focus:ring-2 focus:ring-primary focus:outline-none" type="text" value="PST-084"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base">qr_code_2</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Kategori</label>
+<div class="relative">
+<button class="w-full h-12 px-3 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md flex items-center justify-between text-left" type="button">
+<span class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-tertiary text-sm">bakery_dining</span>
+<span>Pastry &amp; Roti Artisan</span>
+</span>
+<span class="material-symbols-outlined text-sm">unfold_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pricing & Margin Breakdown Row -->
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Harga Jual</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-label-md text-label-md text-on-surface-variant font-bold">Rp</span>
+<input class="w-full h-12 pl-10 pr-3 rounded-lg bg-surface-container-low focus:bg-surface-container-lowest font-numeric-price text-numeric-price font-bold text-on-surface focus:ring-2 focus:ring-primary focus:outline-none" type="text" value="58.000"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold">HPP / COGS</label>
+<span class="font-label-sm text-label-sm text-secondary font-bold">+57.7% Margin</span>
+</div>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-label-md text-label-md text-on-surface-variant font-bold">Rp</span>
+<input class="w-full h-12 pl-10 pr-3 rounded-lg bg-surface-container-low focus:bg-surface-container-lowest font-numeric-price text-numeric-price text-on-surface focus:ring-2 focus:ring-primary focus:outline-none" type="text" value="24.500"/>
+</div>
+</div>
+</div>
+<!-- Inventory Control Card -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Pantau Stok Inventaris</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Otomatis potong saat kasir checkout</span>
+</div>
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-secondary transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow ring-0 transition duration-200 ease-in-out mt-0.5 ml-0.5"></span>
+</button>
+</div>
+<!-- Stepper for Current Stock -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Stok Saat Ini</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Satuan: Pieces (pcs)</span>
+</div>
+<div class="flex items-center bg-surface-container-lowest rounded-lg p-1 shadow-sm">
+<button class="w-10 h-10 rounded-md bg-surface-container-low hover:bg-surface-container-high text-on-surface font-bold text-lg flex items-center justify-center active:scale-95 transition-all" type="button">
+                –
+              </button>
+<span class="w-12 text-center font-numeric-price text-numeric-price font-bold text-on-surface font-mono">14</span>
+<button class="w-10 h-10 rounded-md bg-surface-container-low hover:bg-surface-container-high text-on-surface font-bold text-lg flex items-center justify-center active:scale-95 transition-all" type="button">
+                +
+              </button>
+</div>
+</div>
+<!-- Low Stock Threshold -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Peringatan Batas Stok Minimum</span>
+<div class="flex items-center gap-1.5 w-24">
+<input class="w-16 h-9 px-2 text-center font-mono font-bold bg-surface-container-lowest rounded-md text-on-surface focus:ring-1 focus:ring-primary focus:outline-none" type="number" value="5"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">pcs</span>
+</div>
+</div>
+</div>
+<!-- Modifiers & Variant Groups -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm font-bold text-on-surface">Varian &amp; Modifikasi</label>
+<button class="text-primary hover:text-primary-container font-label-md text-label-md font-bold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>+ Tambah Grup</span>
+</button>
+</div>
+<!-- Variant Group 1: Temperature -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Suhu Penyajian (Pilihan Tunggal)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">WAJIB</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm text-primary font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check</span> Hangat (Bawaan)
+              </span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md">
+                Suhu Ruangan
+              </span>
+</div>
+</div>
+<!-- Variant Group 2: Spiciness Level -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Tingkat Kepedasan (Pilihan Tunggal)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">WAJIB</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md">
+                Pedas Ringan
+              </span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm text-primary font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check</span> Pedas Sedang (Bawaan)
+              </span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md">
+                Ekstra Pedas 🔥
+              </span>
+</div>
+</div>
+<!-- Variant Group 3: Add-ons (Multi-select) -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Tambahan Ekstra (Opsional)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">MULTI-PILIH</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm text-on-surface font-label-md text-label-md flex items-center gap-1.5 cursor-pointer">
+<input checked="" class="w-3.5 h-3.5 accent-primary rounded" type="checkbox"/>
+<span>Saus Madu Mustard (+Rp 5.000)</span>
+</span>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md flex items-center gap-1.5 cursor-pointer">
+<input class="w-3.5 h-3.5 accent-primary rounded" type="checkbox"/>
+<span>Lelehan Keju Cheddar (+Rp 8.000)</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Sticky Footer -->
+<div class="p-space-md bg-surface-container-lowest shadow-[0_-4px_16px_rgba(0,0,0,0.04)] flex items-center justify-between gap-space-md">
+<button class="h-12 px-4 rounded-lg bg-error-container/40 hover:bg-error-container text-error font-label-lg text-label-lg flex items-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+<span>Hapus Menu</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="h-12 px-5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-all" type="button">
+            Batal
+          </button>
+<button class="h-12 px-6 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm font-bold flex items-center gap-2 shadow-md transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-base">save</span>
+<span>Simpan Perubahan</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</div></main></div></body></html>

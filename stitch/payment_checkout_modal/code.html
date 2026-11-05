@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#e0d9d3","primary-fixed":"#ffdbcf","surface-bright":"#fff8f4","primary":"#a43700","secondary-container":"#a0f399","error-container":"#ffdad6","on-surface":"#1e1b18","on-secondary-container":"#217128","surface-container":"#f4ece7","tertiary":"#805200","on-error":"#ffffff","on-surface-variant":"#5a4138","tertiary-container":"#a16800","inverse-surface":"#33302c","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","surface-container-high":"#eee7e1","on-primary-container":"#fffbff","surface-container-low":"#faf2ed","tertiary-fixed":"#ffddb5","on-primary-fixed-variant":"#802a00","on-secondary-fixed-variant":"#005312","primary-container":"#cd4700","primary-fixed-dim":"#ffb59a","surface-container-highest":"#e9e1dc","on-secondary":"#ffffff","surface-tint":"#a83900","tertiary-fixed-dim":"#ffb957","on-primary":"#ffffff","inverse-primary":"#ffb59a","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-container":"#fffbff","outline-variant":"#e3bfb2","secondary-fixed":"#a3f69c","background":"#fff8f4","outline":"#8f7066","on-tertiary-fixed":"#2a1800","on-secondary-fixed":"#002204","surface":"#fff8f4","inverse-on-surface":"#f7efea","surface-variant":"#e9e1dc","on-primary-fixed":"#380d00","secondary":"#1b6d24","on-background":"#1e1b18","secondary-fixed-dim":"#88d982","on-tertiary-fixed-variant":"#643f00"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin":"1.25rem","gutter":"1rem","space-xs":"0.25rem","gutter-lg":"1.5rem","space-lg":"1.5rem","gutter-sm":"0.75rem","space-xl":"2rem","margin-mobile":"0.75rem","space-md":"1rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"numeric-total":["Inter"],"numeric-price":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"label-sm":["10px",{lineHeight:"12px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"18px",fontWeight:"600"}],"numeric-total":["30px",{lineHeight:"36px",fontWeight:"700"}],"numeric-price":["16px",{lineHeight:"20px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"display-md":["26px",{lineHeight:"32px",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"22px",fontWeight:"600"}],"display-lg":["32px",{lineHeight:"40px",fontWeight:"700"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-20 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md select-none"><div class="flex flex-col items-center gap-space-sm w-full"><a class="flex flex-col items-center justify-center p-space-xs" data-path="cashier-register" href="#"><img alt="Culinary POS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh9i0TjA9MFyxvfcixFK2MD0EQLG24FyTCiiU13h7x6kiGoUVw9w05zcIi5RveGnX_oRQdcvib9XaeHGOXh5u0J15im6c06SwAuiNr-oU9KgpdwaM1M6pIQ6h-MoInUYzF4-O79wngm70rDAtUDuJBmVnWNOlO6MNrmyNjna181Hlhp_wHp8FeJlJsDpI3BujqjggFKtrJuqDqfdDAIk_-_wgbGivpQv3huOlFrShi"/></a></div><nav class="flex flex-col items-center gap-space-xs w-full px-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm"><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="cashier-register" href="#"><span class="material-symbols-outlined text-2xl">point_of_sale</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Register</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="menu-management" href="#"><span class="material-symbols-outlined text-2xl">restaurant_menu</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Menu</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="categories" href="#"><span class="material-symbols-outlined text-2xl">grid_view</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Category</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="order-history" href="#"><span class="material-symbols-outlined text-2xl">receipt_long</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Orders</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-2xl">settings</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Settings</span></a></nav><div class="flex flex-col items-center gap-space-sm w-full"><a class="w-16 h-12 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-all" data-path="pos-lock" href="#" title="Kunci Terminal"><span class="material-symbols-outlined text-xl">lock</span><span class="font-label-sm text-label-sm uppercase">Lock</span></a><div class="relative flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary"></span></div></div></aside><div class="pl-20"><header class="fixed top-0 left-20 right-0 h-14 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg select-none"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Station 01 • Main Bar</span><span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider">Online</span></div><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-bold"><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="cashier-register" href="#">Dine In</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="order-history" href="#">Takeaway</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="menu-management" href="#">Express Bar</a></nav><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="font-numeric-price text-numeric-price text-tertiary">Shift #1042</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen"><div class="flex flex-col w-full relative">
+<!-- POS Background Surface (Simulated Active Terminal Workspace Underneath) -->
+<div class="w-full min-h-[calc(100vh-3.5rem)] grid grid-cols-12 gap-gutter px-gutter-lg py-space-md opacity-40 blur-[2px] pointer-events-none select-none">
+<!-- Center Menu Workspace Preview -->
+<div class="col-span-8 flex flex-col gap-space-md">
+<!-- Category Badges -->
+<div class="flex items-center gap-space-sm overflow-hidden py-1">
+<span class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-md text-label-md">All Signatures (18)</span>
+<span class="px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">Espresso Bar</span>
+<span class="px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">Artisan Bakery</span>
+<span class="px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">Tea &amp; Tonics</span>
+</div>
+<!-- Tile Grid -->
+<div class="grid grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs">
+<div class="w-full h-24 rounded-lg bg-surface-container-high"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Spanish Latte</span>
+<span class="font-numeric-price text-numeric-price text-tertiary">Rp 42.000</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs">
+<div class="w-full h-24 rounded-lg bg-surface-container-high"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Smoked Croissant</span>
+<span class="font-numeric-price text-numeric-price text-tertiary">Rp 68.000</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs">
+<div class="w-full h-24 rounded-lg bg-surface-container-high"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Matcha Cloud</span>
+<span class="font-numeric-price text-numeric-price text-tertiary">Rp 48.000</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs">
+<div class="w-full h-24 rounded-lg bg-surface-container-high"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Almond Pain</span>
+<span class="font-numeric-price text-numeric-price text-tertiary">Rp 38.000</span>
+</div>
+</div>
+</div>
+<!-- Active Ticket Sidebar Preview -->
+<div class="col-span-4 bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col justify-between h-[640px]">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">Table 08</span>
+<span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">Dine In</span>
+</div>
+<div class="py-4 text-center text-on-surface-variant font-body-sm text-body-sm">
+        Checkout session opened in overlay...
+      </div>
+<div class="bg-surface-container p-space-sm rounded-lg flex justify-between font-headline-sm text-headline-sm">
+<span>Total</span>
+<span>Rp 209.790</span>
+</div>
+</div>
+</div>
+<!-- Dimmed Modal Backdrop Scrim -->
+<div class="fixed inset-0 top-14 left-20 z-50 bg-on-surface/65 backdrop-blur-sm flex items-center justify-center p-space-md" id="checkout-scrim">
+<!-- Centered Checkout Modal Box -->
+<div class="w-full max-w-[920px] max-h-[942px] bg-surface-container-lowest rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Top Modal Control Header Bar -->
+<div class="h-14 px-gutter-lg bg-surface-container-lowest flex items-center justify-between shadow-sm z-10 shrink-0">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-2xl">point_of_sale</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Pembayaran &amp; Kasir</h2>
+<span class="ml-2 px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">PROSES CEPAT</span>
+</div>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" id="btn-close-modal" title="Tutup Jendela Pembayaran" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Main Modal Split Content -->
+<div class="flex flex-1 overflow-hidden min-h-[580px]">
+<!-- LEFT COLUMN: Order Recap (40% width) -->
+<div class="w-[42%] bg-surface-container-low p-space-lg flex flex-col justify-between overflow-y-auto">
+<div class="flex flex-col gap-space-md">
+<!-- Ticket Metadata Tag -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+                  Pesanan #ORD-204
+                </span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase">MEJA 08</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span>Kasir: Sarah K. • Shift #1</span>
+<span>14:28 WIB</span>
+</div>
+</div>
+<!-- Order Line Items List -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">RINGKASAN PESANAN (3 ITEM)</span>
+<span class="font-label-sm text-label-sm text-secondary">Terverifikasi</span>
+</div>
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded bg-primary/10 text-primary font-label-md text-label-md flex items-center justify-center shrink-0 mt-0.5">2×</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Spanish Latte Macchiato</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sedikit Gula, Susu Oat</span>
+</div>
+</div>
+<span class="font-numeric-price text-numeric-price text-on-surface tabular-nums shrink-0">Rp 84.000</span>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded bg-primary/10 text-primary font-label-md text-label-md flex items-center justify-center shrink-0 mt-0.5">1×</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Smoked Beef Brisket Croissant</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hangat, Saus Madu Mustard</span>
+</div>
+</div>
+<span class="font-numeric-price text-numeric-price text-on-surface tabular-nums shrink-0">Rp 68.000</span>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded bg-primary/10 text-primary font-label-md text-label-md flex items-center justify-center shrink-0 mt-0.5">1×</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Matcha Cold Foam Cloud</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Es Standar, Manis Normal</span>
+</div>
+</div>
+<span class="font-numeric-price text-numeric-price text-on-surface tabular-nums shrink-0">Rp 48.000</span>
+</div>
+</div>
+</div>
+<!-- Billing Breakdown & Total Due -->
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5 text-body-sm font-body-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span class="tabular-nums font-semibold text-on-surface">Rp 200.000</span>
+</div>
+<div class="flex justify-between text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">loyalty</span>
+                  Diskon Loyalitas VIP (10%)
+                </span>
+<span class="tabular-nums font-semibold">-Rp 20.000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Biaya Layanan (5%)</span>
+<span class="tabular-nums font-semibold text-on-surface">Rp 9.000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Pajak Restoran PB1 (11%)</span>
+<span class="tabular-nums font-semibold text-on-surface">Rp 20.790</span>
+</div>
+</div>
+<!-- Prominent Total Highlight Box -->
+<div class="bg-primary-fixed p-space-md rounded-xl shadow-sm flex items-center justify-between mt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-fixed-variant">TOTAL TAGIHAN</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Termasuk semua pajak &amp; servis</span>
+</div>
+<span class="font-numeric-total text-numeric-total text-primary tabular-nums tracking-tight font-bold" data-raw-total="209790" id="order-total-amount">Rp 209.790</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Payment Execution & Numpad (58% width) -->
+<div class="w-[58%] bg-surface-container-lowest p-space-lg flex flex-col justify-between gap-space-md">
+<!-- Top Row: Payment Methods Selection -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">PILIH METODE PEMBAYARAN</span>
+<div class="grid grid-cols-3 gap-space-sm" id="payment-methods-grid">
+<!-- Method 1: Cash (Active) -->
+<button class="method-card h-16 rounded-xl p-space-xs flex flex-col items-center justify-center gap-1 bg-primary/10 shadow-sm transition-all text-primary relative" data-method="cash" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="font-label-lg text-label-lg">Tunai</span>
+</div>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</span>
+<span class="font-label-sm text-label-sm opacity-80">Kembalian Otomatis</span>
+</button>
+<!-- Method 2: QRIS / E-Wallet -->
+<button class="method-card h-16 rounded-xl p-space-xs flex flex-col items-center justify-center gap-1 bg-surface-container-low hover:bg-surface-container transition-all text-on-surface-variant" data-method="qris" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xl">qr_code_scanner</span>
+<span class="font-label-lg text-label-lg text-on-surface">QRIS / E-Wallet</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Layar Dinamis</span>
+</button>
+<!-- Method 3: Card EDC Terminal -->
+<button class="method-card h-16 rounded-xl p-space-xs flex flex-col items-center justify-center gap-1 bg-surface-container-low hover:bg-surface-container transition-all text-on-surface-variant" data-method="card" type="button">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xl">credit_card</span>
+<span class="font-label-lg text-label-lg text-on-surface">Debit / Kartu Kredit</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mesin EDC</span>
+</button>
+</div>
+</div>
+<!-- Interactive Cash Input & Computed Change -->
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">UANG DITERIMA</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Input Aktif</span>
+</div>
+</div>
+<!-- Large Display Field -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm shadow-sm flex items-center justify-between">
+<span class="text-tertiary font-headline-sm text-headline-sm">Rp</span>
+<div class="flex items-center gap-1">
+<span class="font-display-md text-display-md text-on-surface tracking-tight tabular-nums font-bold" id="cash-received-display">250.000</span>
+<span class="w-0.5 h-6 bg-primary animate-pulse"></span>
+</div>
+</div>
+<!-- Auto-Calculated Change Banner -->
+<div class="bg-secondary-container text-on-secondary-container rounded-lg px-space-md py-2.5 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl text-secondary">change_circle</span>
+<span class="font-label-lg text-label-lg">Uang Kembalian:</span>
+</div>
+<span class="font-headline-md text-headline-md tabular-nums font-bold text-secondary" id="change-due-display">Rp 40.210</span>
+</div>
+</div>
+<!-- Touch Pill Shortcuts for High Speed Cash Presets -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">PILIHAN CEPAT</span>
+<div class="grid grid-cols-4 gap-space-sm">
+<button class="quick-chip h-10 rounded-lg bg-surface-container-high hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors font-label-md text-label-md text-on-surface flex items-center justify-center shadow-sm" data-amount="209790" type="button">
+                Uang Pas
+              </button>
+<button class="quick-chip h-10 rounded-lg bg-surface-container-high hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors font-label-md text-label-md text-on-surface flex items-center justify-center shadow-sm tabular-nums" data-amount="220000" type="button">
+                Rp 220.000
+              </button>
+<button class="quick-chip h-10 rounded-lg bg-surface-container-high hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors font-label-md text-label-md text-on-surface flex items-center justify-center shadow-sm tabular-nums" data-amount="250000" type="button">
+                Rp 250.000
+              </button>
+<button class="quick-chip h-10 rounded-lg bg-surface-container-high hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors font-label-md text-label-md text-on-surface flex items-center justify-center shadow-sm tabular-nums" data-amount="300000" type="button">
+                Rp 300.000
+              </button>
+</div>
+</div>
+<!-- Touch Ergonomic POS Numpad Grid -->
+<div class="grid grid-cols-3 gap-space-sm select-none" id="numpad-container">
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="1" type="button">1</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="2" type="button">2</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="3" type="button">3</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="4" type="button">4</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="5" type="button">5</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="6" type="button">6</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="7" type="button">7</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="8" type="button">8</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="9" type="button">9</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-label-lg text-label-lg text-on-surface flex items-center justify-center shadow-sm" data-key="000" type="button">000</button>
+<button class="numpad-btn h-12 rounded-lg bg-surface-container-high hover:bg-surface-container-highest active:scale-[0.98] transition-all font-display-md text-headline-lg text-on-surface flex items-center justify-center shadow-sm" data-key="0" type="button">0</button>
+<button class="numpad-btn h-12 rounded-lg bg-error-container hover:bg-error/20 active:scale-[0.98] transition-all text-on-error-container flex items-center justify-center shadow-sm" data-key="backspace" title="Hapus / Backspace" type="button">
+<span class="material-symbols-outlined text-2xl">backspace</span>
+</button>
+</div>
+<!-- Bottom Action Controls -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="h-14 px-space-lg rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2" id="btn-cancel" type="button">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+              Batal
+            </button>
+<button class="h-14 flex-1 rounded-xl bg-secondary hover:opacity-95 active:scale-[0.99] text-on-secondary font-headline-sm text-headline-sm transition-all flex items-center justify-center gap-space-sm shadow-md" id="btn-submit-payment" type="button">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+<span>Selesaikan Pembayaran &amp; Cetak Struk</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container for Interactive Feedback -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-inverse-surface text-inverse-on-surface px-space-lg py-space-md rounded-xl shadow-xl flex items-center gap-space-sm" id="payment-toast">
+<span class="material-symbols-outlined text-secondary-fixed text-2xl" id="toast-icon">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg" id="toast-title">Transaksi Disetujui</span>
+<span class="font-body-sm text-body-sm opacity-80" id="toast-msg">Mencetak struk transaksi di Station 01 thermal...</span>
+</div>
+</div>
+</div>
+<script>
+  (function initCheckoutInteraction() {
+    const totalDue = 209790;
+    let currentInput = "250000";
+
+    const cashDisplay = document.getElementById("cash-received-display");
+    const changeDisplay = document.getElementById("change-due-display");
+    const toast = document.getElementById("payment-toast");
+    const toastTitle = document.getElementById("toast-title");
+    const toastMsg = document.getElementById("toast-msg");
+    const toastIcon = document.getElementById("toast-icon");
+    const modalScrim = document.getElementById("checkout-scrim");
+
+    function formatNumber(num) {
+      return new Intl.NumberFormat("id-ID").format(num);
+    }
+
+    function updateCalculations() {
+      const numericVal = parseInt(currentInput, 10) || 0;
+      cashDisplay.textContent = formatNumber(numericVal);
+      
+      const change = numericVal - totalDue;
+      if (change >= 0) {
+        changeDisplay.textContent = "Rp " + formatNumber(change);
+        changeDisplay.parentElement.classList.remove("bg-error-container", "text-on-error-container");
+        changeDisplay.parentElement.classList.add("bg-secondary-container", "text-on-secondary-container");
+      } else {
+        changeDisplay.textContent = "Kurang: -Rp " + formatNumber(Math.abs(change));
+        changeDisplay.parentElement.classList.remove("bg-secondary-container", "text-on-secondary-container");
+        changeDisplay.parentElement.classList.add("bg-error-container", "text-on-error-container");
+      }
+    }
+
+    // Touch Numpad Interaction
+    document.querySelectorAll(".numpad-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-key");
+        if (key === "backspace") {
+          currentInput = currentInput.length > 1 ? currentInput.slice(0, -1) : "0";
+        } else if (key === "000") {
+          if (currentInput !== "0" && currentInput.length <= 8) {
+            currentInput += "000";
+          }
+        } else {
+          if (currentInput === "0") {
+            currentInput = key;
+          } else if (currentInput.length <= 9) {
+            currentInput += key;
+          }
+        }
+        updateCalculations();
+      });
+    });
+
+    // Quick Cash Chips
+    document.querySelectorAll(".quick-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        currentInput = chip.getAttribute("data-amount");
+        updateCalculations();
+      });
+    });
+
+    // Payment Method Switching
+    document.querySelectorAll(".method-card").forEach(card => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".method-card").forEach(c => {
+          c.classList.remove("bg-primary/10", "text-primary");
+          c.classList.add("bg-surface-container-low", "text-on-surface-variant");
+          const badge = c.querySelector(".absolute");
+          if (badge) badge.remove();
+        });
+
+        card.classList.remove("bg-surface-container-low", "text-on-surface-variant");
+        card.classList.add("bg-primary/10", "text-primary");
+        
+        const badge = document.createElement("span");
+        badge.className = "absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center";
+        badge.innerHTML = '<span class="material-symbols-outlined text-xs">check</span>';
+        card.appendChild(badge);
+
+        const method = card.getAttribute("data-method");
+        if (method !== "cash") {
+          currentInput = totalDue.toString();
+          updateCalculations();
+        }
+      });
+    });
+
+    // Show Toast Helper
+    function showToast(title, msg, icon) {
+      toastTitle.textContent = title;
+      toastMsg.textContent = msg;
+      toastIcon.textContent = icon || "check_circle";
+      toast.classList.remove("translate-y-24", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
+
+      setTimeout(() => {
+        toast.classList.add("translate-y-24", "opacity-0");
+        toast.classList.remove("translate-y-0", "opacity-100");
+      }, 3500);
+    }
+
+    // Submit Payment
+    document.getElementById("btn-submit-payment").addEventListener("click", () => {
+      const numericVal = parseInt(currentInput, 10) || 0;
+      if (numericVal < totalDue) {
+        showToast("Nominal Kurang", "Nominal yang diterima lebih kecil dari total tagihan.", "warning");
+        return;
+      }
+      showToast("Pesanan #ORD-204 Selesai", "Rp " + formatNumber(numericVal) + " diterima. Laci kas terbuka & struk tercetak.", "print");
+    });
+
+    // Close and Cancel buttons
+    const closeModal = () => {
+      showToast("Pembayaran Ditunda", "Pesanan #ORD-204 masih tersimpan dalam keranjang aktif.", "pause_circle");
+    };
+
+    document.getElementById("btn-close-modal").addEventListener("click", closeModal);
+    document.getElementById("btn-cancel").addEventListener("click", closeModal);
+
+    // Initial render
+    updateCalculations();
+  })();
+</script></main></div></body></html>

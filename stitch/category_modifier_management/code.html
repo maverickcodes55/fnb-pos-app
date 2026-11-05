@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#e0d9d3","primary-fixed":"#ffdbcf","surface-bright":"#fff8f4","primary":"#a43700","secondary-container":"#a0f399","error-container":"#ffdad6","on-surface":"#1e1b18","on-secondary-container":"#217128","surface-container":"#f4ece7","tertiary":"#805200","on-error":"#ffffff","on-surface-variant":"#5a4138","tertiary-container":"#a16800","inverse-surface":"#33302c","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","surface-container-high":"#eee7e1","on-primary-container":"#fffbff","surface-container-low":"#faf2ed","tertiary-fixed":"#ffddb5","on-primary-fixed-variant":"#802a00","on-secondary-fixed-variant":"#005312","primary-container":"#cd4700","primary-fixed-dim":"#ffb59a","surface-container-highest":"#e9e1dc","on-secondary":"#ffffff","surface-tint":"#a83900","tertiary-fixed-dim":"#ffb957","on-primary":"#ffffff","inverse-primary":"#ffb59a","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-container":"#fffbff","outline-variant":"#e3bfb2","secondary-fixed":"#a3f69c","background":"#fff8f4","outline":"#8f7066","on-tertiary-fixed":"#2a1800","on-secondary-fixed":"#002204","surface":"#fff8f4","inverse-on-surface":"#f7efea","surface-variant":"#e9e1dc","on-primary-fixed":"#380d00","secondary":"#1b6d24","on-background":"#1e1b18","secondary-fixed-dim":"#88d982","on-tertiary-fixed-variant":"#643f00"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin":"1.25rem","gutter":"1rem","space-xs":"0.25rem","gutter-lg":"1.5rem","space-lg":"1.5rem","gutter-sm":"0.75rem","space-xl":"2rem","margin-mobile":"0.75rem","space-md":"1rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"numeric-total":["Inter"],"numeric-price":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"label-sm":["10px",{lineHeight:"12px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"18px",fontWeight:"600"}],"numeric-total":["30px",{lineHeight:"36px",fontWeight:"700"}],"numeric-price":["16px",{lineHeight:"20px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"display-md":["26px",{lineHeight:"32px",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"22px",fontWeight:"600"}],"display-lg":["32px",{lineHeight:"40px",fontWeight:"700"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-20 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md select-none"><div class="flex flex-col items-center gap-space-sm w-full"><a class="flex flex-col items-center justify-center p-space-xs" data-path="cashier-register" href="#"><img alt="Culinary POS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh9i0TjA9MFyxvfcixFK2MD0EQLG24FyTCiiU13h7x6kiGoUVw9w05zcIi5RveGnX_oRQdcvib9XaeHGOXh5u0J15im6c06SwAuiNr-oU9KgpdwaM1M6pIQ6h-MoInUYzF4-O79wngm70rDAtUDuJBmVnWNOlO6MNrmyNjna181Hlhp_wHp8FeJlJsDpI3BujqjggFKtrJuqDqfdDAIk_-_wgbGivpQv3huOlFrShi"/></a></div><nav class="flex flex-col items-center gap-space-xs w-full px-space-xs"><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="cashier-register" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">KASIR</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="menu-management" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">MENU</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm transition-all" data-path="category-modifier-management" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">KATEGORI</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="order-history" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">PESANAN</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="font-label-sm text-label-sm uppercase tracking-wider">PENGATURAN</span></a></nav><div class="flex flex-col items-center gap-space-sm w-full"><a class="w-16 h-12 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-all" data-path="pos-lock" href="#" title="Kunci Terminal"><span class="font-label-sm text-label-sm uppercase">KUNCI</span></a><div class="relative flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary"></span></div></div></aside><div class="pl-20"><header class="fixed top-0 left-20 right-0 h-14 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg select-none"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Stasiun 01 • Bar Utama</span><span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider">Online</span></div><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-bold"><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="cashier-register" href="#">Dine In</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="order-history" href="#">Takeaway</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="menu-management" href="#">Express Bar</a></nav><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="font-numeric-price text-numeric-price text-tertiary">Shift #1042</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-gutter-lg space-y-gutter-lg max-w-[1720px] mx-auto w-full">
+<!-- Top Action Breadcrumb & Operational Summary Meta Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md bg-surface-container-low px-gutter py-space-sm rounded-xl shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">STRUKTUR KATALOG</span>
+<span class="text-on-surface-variant font-label-md text-label-md">/</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">Matriks Kategori &amp; Modifikasi</span>
+<span class="ml-space-sm inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> SINKRONISASI AKTIF
+        </span>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">cloud_done</span>
+<span>Draf tersimpan otomatis 2m lalu</span>
+</div>
+<div class="h-4 w-px bg-surface-container-highest"></div>
+<button class="h-9 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+          Log Audit
+        </button>
+</div>
+</div>
+<!-- 2-Column Split Workspace (50% / 50%) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-start">
+<!-- ========================================== -->
+<!-- LEFT COLUMN: Categories Management         -->
+<!-- ========================================== -->
+<section aria-labelledby="cat-mgmt-title" class="flex flex-col gap-space-lg min-w-0">
+<!-- Column Header -->
+<div class="flex items-start justify-between gap-space-md bg-surface-container-lowest p-gutter rounded-xl shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="cat-mgmt-title">Kategori Menu</h1>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Atur hierarki menu, urutan tampilan POS, dan rute dapur/bar</p>
+</div>
+<button class="h-12 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center gap-space-xs shadow-sm active:scale-95 transition-all shrink-0" id="toggle-new-cat-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+            + Kategori Baru
+          </button>
+</div>
+<!-- Inline Quick-Add Card (Expandable/Configurable) -->
+<div class="bg-surface-container-lowest p-gutter rounded-xl shadow-sm flex flex-col gap-space-md" id="quick-add-category-card">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">create_new_folder</span>
+              Buat Master Kategori
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-xs py-0.5 rounded font-bold">Urutan Tampilan #07</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- Category Name Input -->
+<div class="md:col-span-7 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium" for="new-cat-name">Nama Kategori *</label>
+<div class="relative">
+<input class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:shadow-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all placeholder:text-on-surface-variant/50" id="new-cat-name" placeholder="cth., Mocktail &amp; Minuman Segar Musiman" type="text" value="Mocktail &amp; Minuman Segar Musiman"/>
+<span class="absolute right-3 top-3.5 material-symbols-outlined text-[20px] text-on-surface-variant/40 pointer-events-none">label</span>
+</div>
+</div>
+<!-- Icon Selector -->
+<div class="md:col-span-5 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium">Ikon Pilihan</label>
+<button class="w-full h-12 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-between transition-colors shadow-sm" type="button">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-primary text-[20px]">local_bar</span>
+<span class="truncate">Minuman / Spritz</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Color Swatch Tag Picker -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Label Warna:</span>
+<div aria-label="Label Warna Kategori" class="flex items-center gap-2" role="radiogroup">
+<!-- Terracotta Selected -->
+<button aria-label="Terracotta" class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center ring-2 ring-primary ring-offset-2 ring-offset-surface-container-lowest shadow-sm scale-110" type="button">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</button>
+<!-- Warm Amber -->
+<button aria-label="Warm Amber" class="w-8 h-8 rounded-full bg-tertiary-container hover:scale-105 transition-transform" type="button"></button>
+<!-- Fresh Herb -->
+<button aria-label="Fresh Herb" class="w-8 h-8 rounded-full bg-secondary hover:scale-105 transition-transform" type="button"></button>
+<!-- Coffee Berry -->
+<button aria-label="Coffee Berry" class="w-8 h-8 rounded-full bg-[#c2185b] hover:scale-105 transition-transform" type="button"></button>
+<!-- Warm Caramel -->
+<button aria-label="Warm Caramel" class="w-8 h-8 rounded-full bg-[#8d6e63] hover:scale-105 transition-transform" type="button"></button>
+<!-- Deep Teal -->
+<button aria-label="Deep Teal" class="w-8 h-8 rounded-full bg-[#00897b] hover:scale-105 transition-transform" type="button"></button>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="flex items-center gap-space-sm justify-end">
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+                Batal
+              </button>
+<button class="h-10 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all active:scale-95 flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                Simpan Kategori
+              </button>
+</div>
+</div>
+</div>
+<!-- Category Drag-and-Drop Stack -->
+<div aria-label="Daftar Kategori Menu" class="flex flex-col gap-space-sm" role="list">
+<!-- Item 1: Signature Coffee -->
+<article class="group bg-surface-container-lowest hover:bg-surface-bright p-gutter rounded-xl shadow-sm transition-all flex items-center justify-between gap-space-md cursor-grab active:cursor-grabbing" role="listitem">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="text-on-surface-variant/40 group-hover:text-on-surface-variant transition-colors flex items-center p-1">
+<span class="material-symbols-outlined text-[22px]">drag_indicator</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">coffee</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Kopi Spesialti</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">18 menu</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<span class="truncate">POS • Dine-In • Takeaway • Pesanan Online</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<!-- Touch Switch (48px hit) -->
+<label class="relative inline-flex items-center justify-center w-12 h-12 cursor-pointer" title="Status Aktif Kategori">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[5px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<div class="flex items-center gap-1">
+<button aria-label="Edit Kopi Spesialti" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Hapus Kopi Spesialti" class="w-10 h-10 rounded-lg hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 2: Artisan Pastry & Viennoiserie -->
+<article class="group bg-surface-container-lowest hover:bg-surface-bright p-gutter rounded-xl shadow-sm transition-all flex items-center justify-between gap-space-md cursor-grab active:cursor-grabbing" role="listitem">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="text-on-surface-variant/40 group-hover:text-on-surface-variant transition-colors flex items-center p-1">
+<span class="material-symbols-outlined text-[22px]">drag_indicator</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/15 text-tertiary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">bakery_dining</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Pastry &amp; Roti Artisan</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">12 menu</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<span class="truncate">POS • Dine-In • Konter Kilat</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<label class="relative inline-flex items-center justify-center w-12 h-12 cursor-pointer" title="Status Aktif Kategori">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[5px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<div class="flex items-center gap-1">
+<button aria-label="Edit Pastry &amp; Roti Artisan" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Hapus Pastry &amp; Roti Artisan" class="w-10 h-10 rounded-lg hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 3: Main Course & Brunch -->
+<article class="group bg-surface-container-lowest hover:bg-surface-bright p-gutter rounded-xl shadow-sm transition-all flex items-center justify-between gap-space-md cursor-grab active:cursor-grabbing" role="listitem">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="text-on-surface-variant/40 group-hover:text-on-surface-variant transition-colors flex items-center p-1">
+<span class="material-symbols-outlined text-[22px]">drag_indicator</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">dinner_dining</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Menu Utama &amp; Dapur</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">24 menu</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<span class="truncate">POS • Dine-In • QR Meja</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<label class="relative inline-flex items-center justify-center w-12 h-12 cursor-pointer" title="Status Aktif Kategori">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[5px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<div class="flex items-center gap-1">
+<button aria-label="Edit Menu Utama &amp; Dapur" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Hapus Menu Utama &amp; Dapur" class="w-10 h-10 rounded-lg hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 4: Cold Drinks & Craft Teas -->
+<article class="group bg-surface-container-lowest hover:bg-surface-bright p-gutter rounded-xl shadow-sm transition-all flex items-center justify-between gap-space-md cursor-grab active:cursor-grabbing" role="listitem">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="text-on-surface-variant/40 group-hover:text-on-surface-variant transition-colors flex items-center p-1">
+<span class="material-symbols-outlined text-[22px]">drag_indicator</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#00897b]/15 text-[#00897b] flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">emoji_food_beverage</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Minuman Dingin &amp; Teh Artisan</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">16 menu</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<span class="truncate">POS • Dine-In • Takeaway • Pesanan Online</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<label class="relative inline-flex items-center justify-center w-12 h-12 cursor-pointer" title="Status Aktif Kategori">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[5px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<div class="flex items-center gap-1">
+<button aria-label="Edit Minuman Dingin &amp; Teh Artisan" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Hapus Minuman Dingin &amp; Teh Artisan" class="w-10 h-10 rounded-lg hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 5: Desserts & Plated Sweets -->
+<article class="group bg-surface-container-lowest hover:bg-surface-bright p-gutter rounded-xl shadow-sm transition-all flex items-center justify-between gap-space-md cursor-grab active:cursor-grabbing" role="listitem">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="text-on-surface-variant/40 group-hover:text-on-surface-variant transition-colors flex items-center p-1">
+<span class="material-symbols-outlined text-[22px]">drag_indicator</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#c2185b]/15 text-[#c2185b] flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">icecream</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Hidangan Penutup &amp; Kue Manis</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">9 menu</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<span class="truncate">POS • Dine-In • Express Bar</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<label class="relative inline-flex items-center justify-center w-12 h-12 cursor-pointer" title="Status Aktif Kategori">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[5px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<div class="flex items-center gap-1">
+<button aria-label="Edit Hidangan Penutup" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Hapus Hidangan Penutup" class="w-10 h-10 rounded-lg hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 6: Retail Beans & Merchandise -->
+<article class="group bg-surface-container-lowest/80 hover:bg-surface-bright p-gutter rounded-xl shadow-sm transition-all flex items-center justify-between gap-space-md cursor-grab active:cursor-grabbing" role="listitem">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="text-on-surface-variant/40 group-hover:text-on-surface-variant transition-colors flex items-center p-1">
+<span class="material-symbols-outlined text-[22px]">drag_indicator</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-[#8d6e63]/15 text-[#8d6e63] flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Biji Kopi &amp; Merchandise</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">6 menu</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<span class="truncate">POS • Rak Retail • Takeaway</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<label class="relative inline-flex items-center justify-center w-12 h-12 cursor-pointer" title="Status Aktif Kategori">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[5px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+<div class="flex items-center gap-1">
+<button aria-label="Edit Biji Kopi" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Hapus Biji Kopi" class="w-10 h-10 rounded-lg hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- RIGHT COLUMN: Modifiers & Add-ons CRUD     -->
+<!-- ========================================== -->
+<section aria-labelledby="mod-mgmt-title" class="flex flex-col gap-space-lg min-w-0">
+<!-- Column Header & Primary Action -->
+<div class="flex items-start justify-between gap-space-md bg-surface-container-lowest p-gutter rounded-xl shadow-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="mod-mgmt-title">Modifikasi &amp; Tambahan (Add-ons)</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Atur opsi grup, ketentuan harga, dan batas pilihan wajib</p>
+</div>
+<button class="h-12 px-space-lg rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center gap-space-xs shadow-sm active:scale-95 transition-all shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]">playlist_add</span>
+            + Buat Grup Modifikasi
+          </button>
+</div>
+<!-- Quick Stats & Filter Pill Bar -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 select-none">
+<button class="px-space-md py-2 rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 shrink-0 shadow-sm" type="button">
+<span>Semua Grup</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-lowest/30 font-bold">8</span>
+</button>
+<button class="px-space-md py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 shrink-0 transition-colors" type="button">
+<span>Wajib</span>
+<span class="px-1.5 py-0.2 rounded-full bg-tertiary-container/30 text-on-surface font-bold">3</span>
+</button>
+<button class="px-space-md py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 shrink-0 transition-colors" type="button">
+<span>Opsional</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container/50 text-on-secondary-container font-bold">5</span>
+</button>
+<div class="h-6 w-px bg-surface-container-highest mx-1 shrink-0"></div>
+<div class="relative shrink-0 flex-1 min-w-[140px]">
+<input class="w-full h-9 pl-8 pr-3 rounded-full bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Cari modifikasi..." type="text"/>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute left-2.5 top-2.5">search</span>
+</div>
+</div>
+<!-- Accordion Cards Container -->
+<div class="flex flex-col gap-space-md">
+<!-- ACCORDION 1: EXPANDED (Espresso Options) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden">
+<!-- Group Header Bar -->
+<div class="p-gutter flex flex-col gap-space-xs bg-surface-bright">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant/40 cursor-grab">drag_indicator</span>
+<h3 class="font-headline-md text-headline-md text-on-surface truncate">Opsi Espresso</h3>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wide font-bold">
+                    WAJIB • PILIH 1
+                  </span>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button aria-label="Edit Grup Opsi Espresso" class="w-9 h-9 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button aria-label="Tutup Kartu Opsi Espresso" class="w-9 h-9 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface transition-transform" type="button">
+<span class="material-symbols-outlined text-[22px]">expand_less</span>
+</button>
+</div>
+</div>
+<!-- Linked Categories Indicator -->
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm pl-7">
+<span class="material-symbols-outlined text-[16px] text-primary">link</span>
+<span>Terhubung ke:</span>
+<span class="font-label-md text-label-md text-on-surface">Kopi Spesialti, Mocktail Musiman</span>
+<span class="text-on-surface-variant/60 font-semibold">• (18 menu aktif)</span>
+</div>
+</div>
+<!-- Options Table View -->
+<div class="px-gutter pt-space-xs pb-gutter">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-3">OPSI PILIHAN</th>
+<th class="py-2.5 px-2 text-center">BAWAAN</th>
+<th class="py-2.5 px-3">BIAYA TAMBAHAN (RP)</th>
+<th class="py-2.5 px-2 text-center">TERSEDIA</th>
+<th class="py-2.5 px-2 text-right">AKSI</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: Normal Shot -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/30 cursor-grab">drag_handle</span>
+<span class="font-label-lg text-label-lg text-on-surface">Single Shot Normal</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<input aria-label="Atur sebagai pilihan default" checked="" class="w-4 h-4 text-primary accent-primary cursor-pointer" name="espresso-default" type="radio"/>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded bg-surface-container font-numeric-price text-numeric-price text-on-surface font-mono">
+                          +Rp 0
+                        </span>
+</td>
+<td class="py-3 px-2 text-center">
+<label class="relative inline-flex items-center justify-center w-10 h-10 cursor-pointer" title="Status ketersediaan stok">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12.5px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Edit opsi" class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button aria-label="Hapus opsi" class="w-8 h-8 rounded hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Double Shot -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/30 cursor-grab">drag_handle</span>
+<span class="font-label-lg text-label-lg text-on-surface">Ekstra Double Espresso</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<input aria-label="Atur sebagai pilihan default" class="w-4 h-4 text-primary accent-primary cursor-pointer" name="espresso-default" type="radio"/>
+</td>
+<td class="py-3 px-3">
+<div class="relative w-36">
+<span class="absolute left-2.5 top-2 font-mono text-on-surface-variant text-[13px]">+Rp</span>
+<input class="w-full h-8 pl-11 pr-2 rounded bg-surface-container-low text-on-surface font-numeric-price text-numeric-price font-mono text-right focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="8.000"/>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<label class="relative inline-flex items-center justify-center w-10 h-10 cursor-pointer" title="Status ketersediaan stok">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12.5px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Edit opsi" class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button aria-label="Hapus opsi" class="w-8 h-8 rounded hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Oat Milk Upgrade -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/30 cursor-grab">drag_handle</span>
+<span class="font-label-lg text-label-lg text-on-surface">Ganti Susu Oat Organik</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<input aria-label="Atur sebagai pilihan default" class="w-4 h-4 text-primary accent-primary cursor-pointer" name="espresso-default" type="radio"/>
+</td>
+<td class="py-3 px-3">
+<div class="relative w-36">
+<span class="absolute left-2.5 top-2 font-mono text-on-surface-variant text-[13px]">+Rp</span>
+<input class="w-full h-8 pl-11 pr-2 rounded bg-surface-container-low text-on-surface font-numeric-price text-numeric-price font-mono text-right focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="12.000"/>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<label class="relative inline-flex items-center justify-center w-10 h-10 cursor-pointer" title="Status ketersediaan stok">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12.5px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Edit opsi" class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button aria-label="Hapus opsi" class="w-8 h-8 rounded hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Almond Milk Substitute -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/30 cursor-grab">drag_handle</span>
+<span class="font-label-lg text-label-lg text-on-surface">Ganti Susu Almond</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<input aria-label="Atur sebagai pilihan default" class="w-4 h-4 text-primary accent-primary cursor-pointer" name="espresso-default" type="radio"/>
+</td>
+<td class="py-3 px-3">
+<div class="relative w-36">
+<span class="absolute left-2.5 top-2 font-mono text-on-surface-variant text-[13px]">+Rp</span>
+<input class="w-full h-8 pl-11 pr-2 rounded bg-surface-container-low text-on-surface font-numeric-price text-numeric-price font-mono text-right focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="12.000"/>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<label class="relative inline-flex items-center justify-center w-10 h-10 cursor-pointer" title="Status ketersediaan stok">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12.5px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Edit opsi" class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button aria-label="Hapus opsi" class="w-8 h-8 rounded hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Decaf Espresso Blend -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/30 cursor-grab">drag_handle</span>
+<span class="font-label-lg text-label-lg text-on-surface">Campuran Decaf Tanpa Kafein</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<input aria-label="Atur sebagai pilihan default" class="w-4 h-4 text-primary accent-primary cursor-pointer" name="espresso-default" type="radio"/>
+</td>
+<td class="py-3 px-3">
+<div class="relative w-36">
+<span class="absolute left-2.5 top-2 font-mono text-on-surface-variant text-[13px]">+Rp</span>
+<input class="w-full h-8 pl-11 pr-2 rounded bg-surface-container-low text-on-surface font-numeric-price text-numeric-price font-mono text-right focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="6.000"/>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<label class="relative inline-flex items-center justify-center w-10 h-10 cursor-pointer" title="Status ketersediaan stok">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12.5px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Edit opsi" class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button aria-label="Hapus opsi" class="w-8 h-8 rounded hover:bg-error-container flex items-center justify-center text-on-surface-variant hover:text-on-error-container" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Bottom Add Option Button -->
+<div class="mt-space-md pt-space-xs">
+<button class="w-full h-11 rounded-lg border-2 border-dashed border-outline-variant/60 hover:border-primary bg-surface-container-low/50 hover:bg-surface-container text-on-surface-variant hover:text-primary font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                  + Tambah Baris Opsi Espresso
+                </button>
+</div>
+</div>
+</div>
+<!-- ACCORDION 2: COLLAPSED (Sugar Level) -->
+<article class="bg-surface-container-lowest hover:bg-surface-bright rounded-xl shadow-sm transition-all p-gutter flex items-center justify-between gap-space-md group">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant/40 group-hover:text-on-surface-variant cursor-grab">drag_indicator</span>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-md text-headline-md text-on-surface truncate">Tingkat Kemanisan Gula</h3>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wide font-bold">
+                    OPSIONAL • PILIH 1
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 truncate">
+                  4 opsi aktif (Normal 100%, Less Sugar 50%, Sedikit 25%, Tanpa Gula 0%)
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded hidden sm:inline-block font-medium">Terhubung ke 3 Kategori</span>
+<button aria-label="Edit Tingkat Kemanisan Gula" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Buka Tingkat Kemanisan Gula" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface" type="button">
+<span class="material-symbols-outlined text-[22px]">expand_more</span>
+</button>
+</div>
+</article>
+<!-- ACCORDION 3: COLLAPSED (Extra Toppings & Sauces) -->
+<article class="bg-surface-container-lowest hover:bg-surface-bright rounded-xl shadow-sm transition-all p-gutter flex items-center justify-between gap-space-md group">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant/40 group-hover:text-on-surface-variant cursor-grab">drag_indicator</span>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-md text-headline-md text-on-surface truncate">Topping Ekstra &amp; Saus Artisan</h3>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wide font-bold">
+                    OPSIONAL • PILIH MAKS 3
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 truncate">
+                  6 opsi aktif (Boba Brown Sugar, Cincau Grass Jelly, Saus Karamel Gurih, Gelato Espresso)
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded hidden sm:inline-block font-medium">Terhubung ke 4 Kategori</span>
+<button aria-label="Edit Topping Ekstra" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Buka Topping Ekstra" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface" type="button">
+<span class="material-symbols-outlined text-[22px]">expand_more</span>
+</button>
+</div>
+</article>
+<!-- ACCORDION 4: COLLAPSED (Serving Temperature & Ice Level) -->
+<article class="bg-surface-container-lowest hover:bg-surface-bright rounded-xl shadow-sm transition-all p-gutter flex items-center justify-between gap-space-md group">
+<div class="flex items-center gap-space-md min-w-0">
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant/40 group-hover:text-on-surface-variant cursor-grab">drag_indicator</span>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-md text-headline-md text-on-surface truncate">Suhu Penyajian &amp; Tingkat Es</h3>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wide font-bold">
+                    WAJIB • PILIH 1
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 truncate">
+                  3 opsi (Panas Steamed, Es Batu Standar, Es Lebih Sedikit 40%)
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded hidden sm:inline-block font-medium">Terhubung ke 2 Kategori</span>
+<button aria-label="Edit Suhu &amp; Tingkat Es" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button aria-label="Buka Suhu &amp; Tingkat Es" class="w-10 h-10 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface" type="button">
+<span class="material-symbols-outlined text-[22px]">expand_more</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+</div>
+<!-- Visual Diagnostic & Kitchen Flow Helper Banner -->
+<div class="bg-surface-container p-gutter rounded-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Aturan Kaskade Matriks Modifikasi</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Perubahan di sini langsung tersinkron ke Kitchen Display System (KDS), Bar Stasiun 01, dan QR Meja.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-10 px-space-md rounded-lg bg-surface-container-highest hover:bg-surface-dim text-on-surface font-label-md text-label-md transition-colors font-medium" type="button">
+          Ekspor Format JSON
+        </button>
+<button class="h-10 px-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-colors font-medium" type="button">
+          Terapkan Perubahan ke Semua Terminal
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const toggleBtn = document.getElementById('toggle-new-cat-btn');
+    const quickAddCard = document.getElementById('quick-add-category-card');
+    if (toggleBtn && quickAddCard) {
+      toggleBtn.addEventListener('click', () => {
+        quickAddCard.classList.toggle('hidden');
+        if (!quickAddCard.classList.contains('hidden')) {
+          const nameInput = document.getElementById('new-cat-name');
+          if (nameInput) nameInput.focus();
+        }
+      });
+    }
+  })();
+</script></main></div></body></html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#e0d9d3","primary-fixed":"#ffdbcf","surface-bright":"#fff8f4","primary":"#a43700","secondary-container":"#a0f399","error-container":"#ffdad6","on-surface":"#1e1b18","on-secondary-container":"#217128","surface-container":"#f4ece7","tertiary":"#805200","on-error":"#ffffff","on-surface-variant":"#5a4138","tertiary-container":"#a16800","inverse-surface":"#33302c","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","surface-container-high":"#eee7e1","on-primary-container":"#fffbff","surface-container-low":"#faf2ed","tertiary-fixed":"#ffddb5","on-primary-fixed-variant":"#802a00","on-secondary-fixed-variant":"#005312","primary-container":"#cd4700","primary-fixed-dim":"#ffb59a","surface-container-highest":"#e9e1dc","on-secondary":"#ffffff","surface-tint":"#a83900","tertiary-fixed-dim":"#ffb957","on-primary":"#ffffff","inverse-primary":"#ffb59a","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-container":"#fffbff","outline-variant":"#e3bfb2","secondary-fixed":"#a3f69c","background":"#fff8f4","outline":"#8f7066","on-tertiary-fixed":"#2a1800","on-secondary-fixed":"#002204","surface":"#fff8f4","inverse-on-surface":"#f7efea","surface-variant":"#e9e1dc","on-primary-fixed":"#380d00","secondary":"#1b6d24","on-background":"#1e1b18","secondary-fixed-dim":"#88d982","on-tertiary-fixed-variant":"#643f00"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin":"1.25rem","gutter":"1rem","space-xs":"0.25rem","gutter-lg":"1.5rem","space-lg":"1.5rem","gutter-sm":"0.75rem","space-xl":"2rem","margin-mobile":"0.75rem","space-md":"1rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"numeric-total":["Inter"],"numeric-price":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"label-sm":["10px",{lineHeight:"12px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"18px",fontWeight:"600"}],"numeric-total":["30px",{lineHeight:"36px",fontWeight:"700"}],"numeric-price":["16px",{lineHeight:"20px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"display-md":["26px",{lineHeight:"32px",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"22px",fontWeight:"600"}],"display-lg":["32px",{lineHeight:"40px",fontWeight:"700"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-20 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md select-none"><div class="flex flex-col items-center gap-space-sm w-full"><a class="flex flex-col items-center justify-center p-space-xs" data-path="cashier-register" href="#"><img alt="Culinary POS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh9i0TjA9MFyxvfcixFK2MD0EQLG24FyTCiiU13h7x6kiGoUVw9w05zcIi5RveGnX_oRQdcvib9XaeHGOXh5u0J15im6c06SwAuiNr-oU9KgpdwaM1M6pIQ6h-MoInUYzF4-O79wngm70rDAtUDuJBmVnWNOlO6MNrmyNjna181Hlhp_wHp8FeJlJsDpI3BujqjggFKtrJuqDqfdDAIk_-_wgbGivpQv3huOlFrShi"/></a></div><nav class="flex flex-col items-center gap-space-xs w-full px-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm"><a aria-current="page" class="w-16 h-16 flex flex-col items-center justify-center gap-space-xs transition-all bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm" data-path="cashier-register" href="#"><span class="material-symbols-outlined text-2xl">point_of_sale</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Kasir</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="menu-management" href="#"><span class="material-symbols-outlined text-2xl">restaurant_menu</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Menu</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="categories" href="#"><span class="material-symbols-outlined text-2xl">grid_view</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Kategori</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="order-history" href="#"><span class="material-symbols-outlined text-2xl">receipt_long</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Pesanan</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-2xl">settings</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Pengaturan</span></a></nav><div class="flex flex-col items-center gap-space-sm w-full"><a class="w-16 h-12 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-all" data-path="pos-lock" href="#" title="Kunci Terminal"><span class="material-symbols-outlined text-xl">lock</span><span class="font-label-sm text-label-sm uppercase">Kunci</span></a><div class="relative flex items-center justify-center"><img alt="Profil" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary"></span></div></div></aside><div class="pl-20"><header class="fixed top-0 left-20 right-0 h-14 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg select-none"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Station 01 • Main Bar</span><span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider">Online</span></div><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-bold"><a aria-current="page" class="transition-colors text-primary font-bold" data-path="cashier-register" href="#">Dine In</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="order-history" href="#">Bungkus / Takeaway</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="menu-management" href="#">Bar Kilat</a></nav><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="font-numeric-price text-numeric-price text-tertiary">Shift #1042</span><img alt="Profil" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="flex flex-col lg:flex-row w-full min-h-[calc(100vh-3.5rem)] bg-surface text-on-surface">
+<!-- CENTER PRODUCT CATALOG & DISCOVERY PANEL (approx 64% width on desktop) -->
+<div class="flex-1 flex flex-col min-w-0 p-space-md lg:p-gutter-lg gap-space-md bg-surface">
+<!-- Top Action Bar -->
+<div class="flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<!-- Search & Barcode Input Field -->
+<div class="relative flex-1 min-w-[280px]">
+<div class="absolute inset-y-0 left-0 pl-space-md flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="w-full h-12 pl-11 pr-24 rounded-lg bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all" placeholder="Cari menu atau pindai barcode..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-space-sm flex items-center gap-space-xs">
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">⌘K</span>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Barcode Scanner Aktif" type="button">
+<span class="material-symbols-outlined text-lg">barcode_scanner</span>
+</button>
+</div>
+</div>
+<!-- Right Controls: Order Type Segmented Switch & Active Table Card -->
+<div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm">
+<!-- Segmented Pill Toggle -->
+<div class="flex p-1 bg-surface-container-low rounded-lg gap-1 select-none">
+<button class="h-10 px-space-md rounded-md bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-1 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-base">check</span>
+<span>Dine-In</span>
+</button>
+<button class="h-10 px-space-md rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">
+              Takeaway
+            </button>
+<button class="h-10 px-space-md rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">
+              Pengantaran
+            </button>
+</div>
+<!-- Table Context Chip -->
+<button class="h-12 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center gap-space-sm transition-colors text-left" type="button">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-base">table_restaurant</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">MEJA 08</span>
+<span class="font-body-sm text-body-sm font-semibold truncate max-w-[120px]">Alex M. (2 org)</span>
+</div>
+<span class="material-symbols-outlined text-base text-on-surface-variant ml-1">sync_alt</span>
+</button>
+</div>
+</div>
+<!-- Category Filter Carousel / Bar -->
+<div class="flex items-center gap-space-sm overflow-x-auto pb-1 scrollbar-none select-none">
+<button class="h-11 px-space-lg rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm shrink-0 flex items-center gap-2" type="button">
+<span>Semua Menu</span>
+<span class="px-2 py-0.5 rounded-full bg-on-primary/20 text-on-primary font-label-sm text-label-sm">48</span>
+</button>
+<button class="h-11 px-space-lg rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg text-primary">coffee</span>
+<span>Kopi Spesialti</span>
+</button>
+<button class="h-11 px-space-lg rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg text-tertiary">bakery_dining</span>
+<span>Pastry &amp; Roti Artisan</span>
+</button>
+<button class="h-11 px-space-lg rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg text-primary-container">dinner_dining</span>
+<span>Menu Utama</span>
+</button>
+<button class="h-11 px-space-lg rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg text-secondary">local_bar</span>
+<span>Minuman Dingin</span>
+</button>
+<button class="h-11 px-space-lg rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg text-tertiary-container">icecream</span>
+<span>Pencuci Mulut</span>
+</button>
+</div>
+<!-- Dynamic Product Tile Matrix -->
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-gutter flex-1 pb-space-lg">
+<!-- Tile 1: Smoked Beef Brisket Croissant (Active highlight state) -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-md ring-2 ring-primary transition-all duration-150 active:scale-[0.98] cursor-pointer">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Gourmet freshly baked buttery smoked beef brisket croissant layered with melted cheddar cheese and microgreens on warm rustic artisan plate in soft morning cafe lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHKVlEVo3R5ARBUzqPOTOxTp5IKl6tXVBvRZvI0MGsH-AhfcXqFeUEezF_zbzSga-n9uGzRhVJ5Kt-9R3Cgvj857zhFlzzn6gUL6_cfF6zmwDDtoFS-lZqWa14E9rCzktwllA5ER9LKs1PS_r6gkZyibtws2DGlgsRJ4DvJ6mbG7fdkidnP4VJ1aiY90l7aUh1STyrP0o3qDn0AWcq6vrT1ILFoybzyp-xO7p96W4p"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+<span>12 tersisa</span>
+</div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Pastry • Gurih</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Smoked Beef Brisket Croissant</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 68.000</span>
+<button class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shadow hover:opacity-90 transition-opacity" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tile 2: Spanish Latte Macchiato -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-150 active:scale-[0.98] cursor-pointer">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Aesthetic layered Spanish Latte Macchiato in a clear tall glass featuring condensed milk, steamed milk, and rich golden espresso crema topped with cinnamon dusting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhX63FMjvGyO_SJJkfs9IvK_s7IDfY3q-jpi4rIdToERjY7mkT1CBDRRo-t7g8qB8hjG7HQeXPHIWuROQaOZMCSJ8ifWizoZAORnVlk2N43Y6ia4bYIziUo5ExBhfOqnRMPP17IoZk2UDlXT5iV0ym6GYbLT1eWzV_W1PyDr0z70tQn5_UkSo9bdr5obR6K-g-EbhRnDewksz1OysUfa47o9WmvwQ5CEubczUNO5RG"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm">
+              Panas / Dingin
+            </div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-surface-dim/90 text-on-surface font-label-sm text-label-sm">
+              24 tersisa
+            </div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">Kopi Spesialti</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Spanish Latte Macchiato</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 42.000</span>
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tile 3: Truffle Parmesan Pasta -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-150 active:scale-[0.98] cursor-pointer">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Plated creamy artisanal truffle parmesan fettuccine pasta with shaved black winter truffles, herbs, and aged parmesan crisp in high end culinary restaurant setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErQV9n_eFLdxhqqohWqduEF3bAtz0DhI2SqhF5KuQja_FqR3oLs0EeeyULHZEJzk-mnIZ19DVOLSCnfL5Er8Pee66MpwI8WZrk2m8gMW6hFSLuUNAmJZQHBZT0jJm6T9nxYjLTnCiClBrnT80ri8QjzJXprzuxZWEvXbkVJMaCO3-EjGfEumc_raYHei17jYLSGn5yS3yKC5IwlMxSjB5iI_WxJy9lYa8FbqBm-Uk"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-bold shadow-sm">
+              Spesial Koki
+            </div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+              8 tersisa
+            </div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Menu Utama</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Truffle Parmesan Pasta</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 95.000</span>
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tile 4: Artisan Butter Sourdough Toast -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-150 active:scale-[0.98] cursor-pointer">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crispy thick golden artisanal sourdough toast served with whipped sea salt cultured French butter and organic raw honeycomb on slate board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAstr6OJPKrTSAxbAd414w5oinoKoxYUKxgio10woZcYgBST4ZoZuzvx9ooaWfrPgs1YP-IESy6zP8GV6ZGZQHyrP2eNZ7reN4dBD27uTb07J6MlOKEnXKX-R2Qc_BPiR-7sRqybgTP99aV1YanoiID9O3B7FcGDXOYQD8Schra7Mx_S8aGF7aeNeOECO4zooNPvaOUKuo3mlyni8wyO_NM6ccx5jJHAStkpaC4MFFp"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+              Baru Dipanggang
+            </div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Roti &amp; Kue</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Artisan Butter Sourdough Toast</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 35.000</span>
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tile 5: Matcha Cold Foam Cloud -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-150 active:scale-[0.98] cursor-pointer">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Vibrant bright ceremonial green iced matcha latte topped with velvety thick sweet cream cold foam and matcha powder dusting in minimalist glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-ugn8MPJ7OiTenGU1lOF_K7XiKIGG1G3U1Ctt7O-5uv9BUTKtqIQ9r_CHrOMjVYRVtoLPoQuvtIa09j0W6910mUMj1kuTybVAVciFCc9ViMoEf0eLoUI_GCDmhfItslSEddBBZJWTDkDTbQfMntD0INnVwoR5MBj4vUcuJeGF9kNhvwqdE1jqoWcQxvz146k_61D0d892kSBL4Pko40eAxQwosBfB2QCgcHDP-GNE"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">
+              Populer
+            </div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Teh • Spesialti</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Matcha Cold Foam Cloud</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 48.000</span>
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tile 6: Pan-Seared Salmon Citrus -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-150 active:scale-[0.98] cursor-pointer">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crispy skin pan seared Norwegian salmon fillet with citrus orange glaze, asparagus spears, and saffron infused purée gourmet presentation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgfF1YkiwZdcTqVbiey8S9CmwJRyubtD2BPHZFlT6flK0td4os9PhQd_TIJ5U-1i_zw1ezotRUtCZZ_kD3o1IvQ4iLqWuffsmw_WmgerngcNHMuUsPRUyGkNuBas1cjTQ4oAZoedoVIzC-HgDTT1n9xeEgDSvaKs3EpKEG6qdgZngVrgKWzka1jvK8eqjW6f_Cx4Z25VD7jyU7zBP72QxjQJKpDpvTQw9AIzR05vwt"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+              4 tersisa
+            </div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Olahan Laut</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Pan-Seared Salmon Citrus</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 125.000</span>
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tile 7: Classic Pistachio Cannoli (Sold Out State) -->
+<div class="relative bg-surface-container-low rounded-xl p-space-sm flex flex-col justify-between opacity-60 cursor-not-allowed select-none">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover grayscale" data-alt="Traditional Italian crispy golden cannoli tubes filled with sweet ricotta cream and crushed green Sicilian pistachios dusted in powdered sugar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-JaVoYAgwgAd5jkzFcXJLqqJ4C0svFkouYSe_lovfL8dAp472ZhRLw3g1eDzXwC1GPW86uAFy1azGwcAQ2y6TronXD1Hpxobjr3rcns50-T6ZoCQcrCk9nfm_pceUSIepGYS3q4VHT-amNg7mVYrdV5xV4OzRX6ECMGXCn8XqWCtTCykwqWHskSE08chSDNz1fuAywwXmxjvTDqv9nYiPVaQ_N2W466QIdWMBAHsx"/>
+<div class="absolute inset-0 bg-inverse-surface/40 flex items-center justify-center backdrop-blur-[1px]">
+<span class="px-3 py-1 rounded bg-error text-on-error font-label-md text-label-md font-bold uppercase tracking-wider shadow">Habis</span>
+</div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Pencuci Mulut</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant line-clamp-1">Classic Pistachio Cannoli</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface-variant line-through">Rp 38.000</span>
+<span class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">block</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Tile 8: Iced Cascara Orange Tonic -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-150 active:scale-[0.98] cursor-pointer">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Refreshing sparkling coffee cherry cascara iced tonic with dehydrated orange slice and fresh rosemary sprig in tumbler glass filled with crystal ice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBkBhdLZb5kGna4qDeutI-3fTr8HYWx7gn5K8wKFLW9tF4Rq5BkjXHfs2ziV5DD4RizhtrZ2xd8FQIdKEogi9-usiEaF-FdX6V7miAdnFrBMksy3rBFmR4bRBmy7ihGlPP5S8LZXFxXYrC5cQfxB8Ep5naO_j27E6VlZu4tEenYviqRcwDCzxJsUTRneOw1h3b-u0RpmLkCQPfop6S36sxkKdbZsrM8oRO_HzDtLjJ"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">
+              Spesial Musim Panas
+            </div>
+</div>
+<div class="pt-space-sm flex flex-col flex-1 justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">Cold Brew</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Iced Cascara Orange Tonic</h3>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 45.000</span>
+<button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface-variant flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT ACTIVE ORDER TICKET & CHECKOUT PANEL (Fixed/Sticky Sidebar, approx 36% width) -->
+<div class="w-full lg:w-[420px] xl:w-[460px] bg-surface-container-lowest flex flex-col shrink-0 shadow-lg justify-between border-t lg:border-t-0">
+<!-- Ticket Header -->
+<div class="p-space-md bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface">Pesanan #ORD-204</span>
+<span class="px-space-sm py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              AKTIF • MEJA 08
+            </span>
+</div>
+<button class="h-9 px-space-sm rounded-lg bg-error-container/60 hover:bg-error-container text-on-error-container font-label-md text-label-md flex items-center gap-1 transition-colors" title="Kosongkan pesanan" type="button">
+<span class="material-symbols-outlined text-base">delete_sweep</span>
+<span>Hapus</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">badge</span>
+            Kasir: Sarah K.
+          </span>
+<span class="font-numeric-price text-numeric-price text-tertiary">Shift #1 • 14:28 WIB</span>
+</div>
+</div>
+<!-- Active Cart Line Items (Scrollable Well) -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-sm bg-surface-container-low/40">
+<!-- Cart Item 1 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col gap-space-xs transition-shadow hover:shadow">
+<div class="flex items-start gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Spanish Latte Macchiato in glass tumbler with layered milk foam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYL49jrZkM6tbkYAg7R1D5U7H3XNnNszQEteCgpbcS9CKeSEOzZZvdTWoTuAMB17YqQQlQauJ9eVsfT_4a86mLjOXW8OxWSkNIcAZ0omgGx7zZ91YIzsIia3W-QU75q9NgPAL0eHJLcN694MgAvl_bIdQwQ6DJKGWsVhAAjh4lb39afVk_TLju9Myw2tCN2CN3eI1zlqf20C4TeekyW_McagrrZRfwsooHfg9NsGPm"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h4 class="font-label-lg text-label-lg text-on-surface truncate">Spanish Latte Macchiato</h4>
+<span class="font-numeric-price text-numeric-price text-on-surface shrink-0">Rp 84.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1">Kurang Gula, Tambah Oat Milk</p>
+<div class="flex items-center gap-2 mt-1">
+<button class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-xs">edit_note</span>
+<span>Ubah Catatan</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface-variant">@ Rp 42.000</span>
+</div>
+</div>
+</div>
+<!-- Stepper Row -->
+<div class="flex items-center justify-between pt-space-xs mt-space-xs bg-surface-container-low/50 px-space-sm py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Jumlah</span>
+<div class="flex items-center gap-space-sm">
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest hover:bg-surface-container-highest text-on-surface flex items-center justify-center font-bold shadow-sm transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="w-8 text-center font-headline-sm text-headline-sm tabular-nums">2</span>
+<button class="w-8 h-8 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center font-bold shadow-sm transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col gap-space-xs transition-shadow hover:shadow">
+<div class="flex items-start gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Warm smoked beef brisket buttery croissant baked sandwich" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPtycg7wuuD3ylv9mPU5VI4ehdHUFAQTS7R47Fa-Pjgmxq--NxBsUG-rCRAHHq2UHfVwPSKK0OzkMv5mMTfJ-6gRK_F6jY--IBS6IGH-Ks-1M0lyoT26tnqbeHY23F_HCScdWyNXDDInduo46e1W44NZOmOdXtCC8rjp97JzSZBARf6ZGs_V9yKc8j3KXnzmLBGG8fyJiowebf8-q_uTRXVUMvALS96ynbBb83r_iF"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h4 class="font-label-lg text-label-lg text-on-surface truncate">Smoked Beef Brisket Croissant</h4>
+<span class="font-numeric-price text-numeric-price text-on-surface shrink-0">Rp 68.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1">Hangat, ekstra saus mustard</p>
+<div class="flex items-center gap-2 mt-1">
+<button class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-xs">edit_note</span>
+<span>Ubah Catatan</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface-variant">@ Rp 68.000</span>
+</div>
+</div>
+</div>
+<!-- Stepper Row -->
+<div class="flex items-center justify-between pt-space-xs mt-space-xs bg-surface-container-low/50 px-space-sm py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Jumlah</span>
+<div class="flex items-center gap-space-sm">
+<button class="w-8 h-8 rounded-md bg-error-container text-on-error-container hover:bg-error hover:text-on-error flex items-center justify-center shadow-sm transition-all active:scale-95" title="Hapus menu" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+<span class="w-8 text-center font-headline-sm text-headline-sm tabular-nums">1</span>
+<button class="w-8 h-8 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center font-bold shadow-sm transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cart Item 3 -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col gap-space-xs transition-shadow hover:shadow">
+<div class="flex items-start gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Iced ceremonial matcha latte topped with white sweet cold foam in clean glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdWfLxXxh1W11BnlJLXdx8wrD29S26qNdsIzLJrO-rKWpxjVR_lRmNJkf6hQ21a_TmVofFe8BwN6Kxy0akC9iNj5e8jjc_FRCbHZZDWJdHRQUcrqf_ZAMuTHYaEbTFcz6lJyRllJLO4d6Lm7JQ_rNduuwWfKZtr4DDoHJA0LhRlXbkX05NRAZOSOQ-yYJyrD010XF_sJlzcZ8o8jpEHhNn5o56UAs24QTwf9WWEMdc"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h4 class="font-label-lg text-label-lg text-on-surface truncate">Matcha Cold Foam Cloud</h4>
+<span class="font-numeric-price text-numeric-price text-on-surface shrink-0">Rp 48.000</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1">Es &amp; manis standar</p>
+<div class="flex items-center gap-2 mt-1">
+<button class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-xs">edit_note</span>
+<span>Ubah Catatan</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface-variant">@ Rp 48.000</span>
+</div>
+</div>
+</div>
+<!-- Stepper Row -->
+<div class="flex items-center justify-between pt-space-xs mt-space-xs bg-surface-container-low/50 px-space-sm py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Jumlah</span>
+<div class="flex items-center gap-space-sm">
+<button class="w-8 h-8 rounded-md bg-error-container text-on-error-container hover:bg-error hover:text-on-error flex items-center justify-center shadow-sm transition-all active:scale-95" title="Hapus menu" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+<span class="w-8 text-center font-headline-sm text-headline-sm tabular-nums">1</span>
+<button class="w-8 h-8 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center font-bold shadow-sm transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Ticket Calculation Summary & Checkout Actions (Sticky Bottom) -->
+<div class="p-space-md bg-surface-container-lowest shadow-[0_-4px_16px_rgba(0,0,0,0.05)] flex flex-col gap-space-md">
+<!-- Promo / Discount Apply Row -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">sell</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Diskon VIP Member (10%)</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">-Rp 20.000 diterapkan</span>
+</div>
+</div>
+<button class="w-7 h-7 rounded-full hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<!-- Price Math Breakdown -->
+<div class="flex flex-col gap-1.5 text-on-surface-variant font-body-md text-body-md select-none">
+<div class="flex items-center justify-between">
+<span>Subtotal (4 item)</span>
+<span class="font-numeric-price text-numeric-price text-on-surface">Rp 200.000</span>
+</div>
+<div class="flex items-center justify-between text-secondary">
+<span>Diskon (10% VIP)</span>
+<span class="font-numeric-price text-numeric-price">-Rp 20.000</span>
+</div>
+<div class="flex items-center justify-between">
+<span>Biaya Layanan (5%)</span>
+<span class="font-numeric-price text-numeric-price">Rp 9.000</span>
+</div>
+<div class="flex items-center justify-between">
+<span>Pajak Restoran PB1 (11%)</span>
+<span class="font-numeric-price text-numeric-price">Rp 20.790</span>
+</div>
+<div class="h-px bg-surface-container-highest my-1"></div>
+<!-- Grand Total Row -->
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">TOTAL BAYAR</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Termasuk pajak &amp; biaya</span>
+</div>
+<span class="font-numeric-total text-numeric-total text-on-surface tracking-tight">Rp 209.790</span>
+</div>
+</div>
+<!-- Ticket Utility Controls (Hold & Split) -->
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-tertiary-container font-label-lg text-label-lg flex items-center justify-center gap-2 transition-colors active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-xl">pause_circle</span>
+<span>Tahan Pesanan</span>
+</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 transition-colors active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-xl">call_split</span>
+<span>Pisah Tagihan</span>
+</button>
+</div>
+<!-- Main Big Charge CTA -->
+<button class="w-full h-14 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-md text-headline-md flex items-center justify-between px-space-lg shadow-md transition-all active:scale-[0.98]" type="button">
+<span class="flex items-center gap-2 font-bold">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+<span>Proses Pembayaran</span>
+</span>
+<span class="font-numeric-total text-numeric-total text-on-primary tracking-normal">Rp 209.790</span>
+</button>
+<!-- Fast Cashier Shortcut Hotkeys -->
+<div class="grid grid-cols-3 gap-space-xs text-center select-none">
+<button class="py-1.5 px-2 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span>Tunai [F1]</span>
+</button>
+<button class="py-1.5 px-2 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">qr_code_scanner</span>
+<span>QRIS [F2]</span>
+</button>
+<button class="py-1.5 px-2 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">credit_card</span>
+<span>Kartu [F3]</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
