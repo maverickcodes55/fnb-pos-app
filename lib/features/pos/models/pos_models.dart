@@ -60,3 +60,4 @@ class CartItemModel {
 
   int get subtotal => product.price * quantity;
 }
+
