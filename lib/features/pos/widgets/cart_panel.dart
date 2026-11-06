@@ -664,7 +664,7 @@ class CartPanel extends StatelessWidget {
                             Icon(LucideIcons.zap, size: 18),
                             SizedBox(width: 6),
                             Text(
-                              'Bayar',
+                              'Bayar [F12]',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700,

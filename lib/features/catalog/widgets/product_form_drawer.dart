@@ -23,6 +23,7 @@ class ProductFormDrawer extends StatefulWidget {
 }
 
 class _ProductFormDrawerState extends State<ProductFormDrawer> {
+  final _formKey = GlobalKey<FormState>();
   late TextEditingController _nameController;
   late TextEditingController _skuController;
   late TextEditingController _priceController;
@@ -81,17 +82,11 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
   }
 
   void _submit() {
-    final name = _nameController.text.trim();
-    if (name.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Nama menu wajib diisi!'),
-          backgroundColor: AppColors.error,
-        ),
-      );
+    if (!_formKey.currentState!.validate()) {
       return;
     }
 
+    final name = _nameController.text.trim();
     final price = int.tryParse(_priceController.text.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
     final costPrice = int.tryParse(_costPriceController.text.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
     final minStock = int.tryParse(_minStockController.text) ?? 5;
@@ -142,38 +137,42 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      isEditing ? 'Ubah Data Menu' : 'Tambah Menu Baru',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.onSurface,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                      decoration: BoxDecoration(
-                        color: _isAvailable
-                            ? AppColors.secondaryContainer
-                            : AppColors.errorContainer,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Text(
-                        _isAvailable ? 'Aktif di Katalog' : 'Nonaktif',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w700,
-                          color: _isAvailable
-                              ? AppColors.onSecondaryContainer
-                              : AppColors.onErrorContainer,
+                Expanded(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          isEditing ? 'Ubah Data Menu' : 'Tambah Menu Baru',
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.onSurface,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: _isAvailable
+                              ? AppColors.secondaryContainer
+                              : AppColors.errorContainer,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          _isAvailable ? 'Aktif' : 'Nonaktif',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w700,
+                            color: _isAvailable
+                                ? AppColors.onSecondaryContainer
+                                : AppColors.onErrorContainer,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 IconButton(
                   icon: const Icon(LucideIcons.x, size: 18),
@@ -184,9 +183,11 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
           ),
           // Form Fields (Scrollable)
           Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(16),
-              children: [
+            child: Form(
+              key: _formKey,
+              child: ListView(
+                padding: const EdgeInsets.all(16),
+                children: [
                 // Image Box
                 Container(
                   height: 140,
@@ -241,8 +242,13 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 6),
-                TextField(
+                TextFormField(
                   controller: _nameController,
+                  validator: (v) {
+                    if (v == null || v.trim().isEmpty) return 'Nama menu wajib diisi';
+                    if (v.trim().length < 3) return 'Minimal 3 karakter';
+                    return null;
+                  },
                   decoration: InputDecoration(
                     hintText: 'Misal: Kopi Susu Aren',
                     filled: true,
@@ -264,12 +270,16 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Kode SKU',
+                            'Kode SKU *',
                             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
                           ),
                           const SizedBox(height: 6),
-                          TextField(
+                          TextFormField(
                             controller: _skuController,
+                            validator: (v) {
+                              if (v == null || v.trim().isEmpty) return 'SKU wajib diisi';
+                              return null;
+                            },
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: AppColors.surfaceContainerLow,
@@ -341,13 +351,19 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Harga Jual (Rp)',
+                            'Harga Jual (Rp) *',
                             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
                           ),
                           const SizedBox(height: 6),
-                          TextField(
+                          TextFormField(
                             controller: _priceController,
                             keyboardType: TextInputType.number,
+                            validator: (v) {
+                              if (v == null || v.trim().isEmpty) return 'Harga wajib diisi';
+                              final p = int.tryParse(v.replaceAll(RegExp(r'[^0-9]'), ''));
+                              if (p == null || p <= 0) return 'Harus > 0';
+                              return null;
+                            },
                             decoration: InputDecoration(
                               prefixText: 'Rp ',
                               filled: true,
@@ -406,18 +422,20 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Stok Inventaris Saat Ini',
-                                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-                              ),
-                              Text(
-                                'Satuan: pieces (pcs)',
-                                style: TextStyle(fontSize: 10, color: AppColors.onSurfaceVariant),
-                              ),
-                            ],
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Stok Inventaris Saat Ini',
+                                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  'Satuan: pieces (pcs)',
+                                  style: TextStyle(fontSize: 10, color: AppColors.onSurfaceVariant),
+                                ),
+                              ],
+                            ),
                           ),
                           Container(
                             decoration: BoxDecoration(
@@ -496,18 +514,20 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Ketersediaan Menu',
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-                          ),
-                          Text(
-                            'Tampilkan di layar kasir POS',
-                            style: TextStyle(fontSize: 10, color: AppColors.onSurfaceVariant),
-                          ),
-                        ],
+                      const Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Ketersediaan Menu',
+                              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                            ),
+                            Text(
+                              'Tampilkan di layar kasir POS',
+                              style: TextStyle(fontSize: 10, color: AppColors.onSurfaceVariant),
+                            ),
+                          ],
+                        ),
                       ),
                       Switch(
                         value: _isAvailable,
@@ -520,6 +540,7 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
               ],
             ),
           ),
+        ),
           // Footer Actions
           Container(
             padding: const EdgeInsets.all(14),

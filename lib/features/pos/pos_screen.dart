@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constants/app_colors.dart';
@@ -10,6 +11,7 @@ import 'widgets/category_filter_bar.dart';
 import 'widgets/checkout_modal.dart';
 import 'widgets/pos_top_bar.dart';
 import 'widgets/product_card.dart';
+import 'widgets/receipt_preview_dialog.dart';
 
 class PosScreen extends ConsumerStatefulWidget {
   const PosScreen({super.key});
@@ -19,8 +21,17 @@ class PosScreen extends ConsumerStatefulWidget {
 }
 
 class _PosScreenState extends ConsumerState<PosScreen> {
+  final TextEditingController _searchController = TextEditingController();
+  final FocusNode _searchFocusNode = FocusNode();
   String _searchQuery = '';
   int _selectedCategoryId = 0;
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    _searchFocusNode.dispose();
+    super.dispose();
+  }
 
   List<ProductModel> _mapProducts(List<dynamic> dbProducts) {
     if (dbProducts.isEmpty) return mockProducts;
@@ -54,16 +65,35 @@ class _PosScreenState extends ConsumerState<PosScreen> {
           cartItems: cart.items,
           totalAmount: cart.grandTotal,
           onPaymentSuccess: () async {
+            // Snapshot current cart state for receipt preview
+            final orderNumber = '#ORD-${DateTime.now().millisecondsSinceEpoch.toString().substring(7)}';
+            final itemsSnapshot = List<CartItemModel>.from(cart.items);
+            final subtotal = cart.subtotal;
+            final tax = cart.tax;
+            final discount = cart.discount;
+            final grandTotal = cart.grandTotal;
+            final orderTypeStr = cart.orderType == OrderType.dineIn ? 'Dine In' : 'Takeaway';
+            final tableNumber = cart.selectedTableNumber;
+
+            // Commit checkout to Drift database & clear cart
             await ref.read(cartNotifierProvider.notifier).checkout('Tunai / QRIS');
+
             if (mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  backgroundColor: AppColors.secondary,
-                  content: Text(
-                    'Transaksi berhasil disimpan ke database & struk dicetak!',
-                    style: TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  behavior: SnackBarBehavior.floating,
+              // Open Thermal Receipt Preview Modal
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (dialogContext) => ReceiptPreviewDialog(
+                  orderNumber: orderNumber,
+                  orderType: orderTypeStr,
+                  tableNumber: tableNumber,
+                  items: itemsSnapshot,
+                  subtotal: subtotal,
+                  tax: tax,
+                  discount: discount,
+                  grandTotal: grandTotal,
+                  paymentMethod: 'Tunai / QRIS',
+                  onClose: () {},
                 ),
               );
             }
@@ -93,76 +123,104 @@ class _PosScreenState extends ConsumerState<PosScreen> {
       return matchesCategory && matchesSearch;
     }).toList();
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      body: Row(
-        children: [
-          // Left Area: Discovery, Filters & Product Grid (65%)
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  PosTopBar(
-                    searchQuery: _searchQuery,
-                    onSearchChanged: (val) => setState(() => _searchQuery = val),
-                    selectedOrderType: cart.orderType,
-                    onOrderTypeChanged: (type) => cartNotifier.setOrderType(type),
-                    selectedTable: cart.selectedTableNumber,
-                    onTableTap: () {},
-                  ),
-                  const SizedBox(height: 12),
-                  CategoryFilterBar(
-                    categories: mockCategories,
-                    selectedCategoryId: _selectedCategoryId,
-                    onCategorySelected: (id) =>
-                        setState(() => _selectedCategoryId = id),
-                  ),
-                  const SizedBox(height: 16),
-                  Expanded(
-                    child: filteredProducts.isEmpty
-                        ? const Center(
-                            child: Text(
-                              'Tidak ada menu yang sesuai dengan pencarian.',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: AppColors.onSurfaceVariant,
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.f1): () {
+          _searchFocusNode.requestFocus();
+        },
+        const SingleActivator(LogicalKeyboardKey.f2): () {
+          final nextType = cart.orderType == OrderType.dineIn
+              ? OrderType.takeaway
+              : OrderType.dineIn;
+          cartNotifier.setOrderType(nextType);
+        },
+        const SingleActivator(LogicalKeyboardKey.f12): () {
+          if (cart.items.isNotEmpty) {
+            _openCheckoutModal(cart);
+          }
+        },
+        const SingleActivator(LogicalKeyboardKey.escape): () {
+          _searchController.clear();
+          _searchFocusNode.unfocus();
+          setState(() => _searchQuery = '');
+        },
+      },
+      child: Focus(
+        autofocus: true,
+        child: Scaffold(
+          backgroundColor: AppColors.background,
+          body: Row(
+            children: [
+              // Left Area: Discovery, Filters & Product Grid (65%)
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      PosTopBar(
+                        searchQuery: _searchQuery,
+                        searchController: _searchController,
+                        searchFocusNode: _searchFocusNode,
+                        onSearchChanged: (val) => setState(() => _searchQuery = val),
+                        selectedOrderType: cart.orderType,
+                        onOrderTypeChanged: (type) => cartNotifier.setOrderType(type),
+                        selectedTable: cart.selectedTableNumber,
+                        onTableTap: () {},
+                      ),
+                      const SizedBox(height: 12),
+                      CategoryFilterBar(
+                        categories: mockCategories,
+                        selectedCategoryId: _selectedCategoryId,
+                        onCategorySelected: (id) =>
+                            setState(() => _selectedCategoryId = id),
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: filteredProducts.isEmpty
+                            ? const Center(
+                                child: Text(
+                                  'Tidak ada menu yang sesuai dengan pencarian.',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: AppColors.onSurfaceVariant,
+                                  ),
+                                ),
+                              )
+                            : GridView.builder(
+                                itemCount: filteredProducts.length,
+                                gridDelegate:
+                                    const SliverGridDelegateWithMaxCrossAxisExtent(
+                                  maxCrossAxisExtent: 240,
+                                  crossAxisSpacing: 12,
+                                  mainAxisSpacing: 12,
+                                  childAspectRatio: 0.76,
+                                ),
+                                itemBuilder: (context, index) {
+                                  final product = filteredProducts[index];
+                                  return ProductCard(
+                                    product: product,
+                                    onAdd: () => cartNotifier.addToCart(product),
+                                  );
+                                },
                               ),
-                            ),
-                          )
-                        : GridView.builder(
-                            itemCount: filteredProducts.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 240,
-                              crossAxisSpacing: 12,
-                              mainAxisSpacing: 12,
-                              childAspectRatio: 0.76,
-                            ),
-                            itemBuilder: (context, index) {
-                              final product = filteredProducts[index];
-                              return ProductCard(
-                                product: product,
-                                onAdd: () => cartNotifier.addToCart(product),
-                              );
-                            },
-                          ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
+              // Right Area: Active Cart Ticket & Checkout (35%)
+              CartPanel(
+                cartItems: cart.items,
+                onClearCart: cartNotifier.clearCart,
+                onUpdateQuantity: (item, qty) =>
+                    cartNotifier.updateQuantity(item, qty),
+                onUpdateNotes: (item, notes) =>
+                    cartNotifier.updateNotes(item, notes),
+                onCheckout: () => _openCheckoutModal(cart),
+              ),
+            ],
           ),
-          // Right Area: Active Cart Ticket & Checkout (35%)
-          CartPanel(
-            cartItems: cart.items,
-            onClearCart: cartNotifier.clearCart,
-            onUpdateQuantity: (item, qty) =>
-                cartNotifier.updateQuantity(item, qty),
-            onUpdateNotes: (item, notes) =>
-                cartNotifier.updateNotes(item, notes),
-            onCheckout: () => _openCheckoutModal(cart),
-          ),
-        ],
+        ),
       ),
     );
   }

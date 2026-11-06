@@ -11,6 +11,8 @@ class PosTopBar extends StatelessWidget {
   final ValueChanged<OrderType> onOrderTypeChanged;
   final String selectedTable;
   final VoidCallback onTableTap;
+  final FocusNode? searchFocusNode;
+  final TextEditingController? searchController;
 
   const PosTopBar({
     super.key,
@@ -20,6 +22,8 @@ class PosTopBar extends StatelessWidget {
     required this.onOrderTypeChanged,
     required this.selectedTable,
     required this.onTableTap,
+    this.searchFocusNode,
+    this.searchController,
   });
 
   @override
@@ -60,9 +64,11 @@ class PosTopBar extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(
+                      controller: searchController,
+                      focusNode: searchFocusNode,
                       onChanged: onSearchChanged,
                       decoration: const InputDecoration(
-                        hintText: 'Cari menu / barcode...',
+                        hintText: 'Cari menu / barcode... [F1]',
                         hintStyle: TextStyle(
                           color: AppColors.onSurfaceVariant,
                           fontSize: 13,
