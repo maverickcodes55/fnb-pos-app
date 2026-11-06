@@ -173,3 +173,4 @@ final List<TransactionRecord> initialMockTransactions = [
     ],
   ),
 ];
+

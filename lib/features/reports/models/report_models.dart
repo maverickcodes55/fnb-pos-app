@@ -57,3 +57,4 @@ class TransactionRecord {
     required this.items,
   });
 }
+

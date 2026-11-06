@@ -2,12 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import '../../../core/constants/app_colors.dart';
+import '../../../core/utils/currency_formatter.dart';
+import '../providers/reports_providers.dart';
 
 class SalesKpiCards extends StatelessWidget {
-  const SalesKpiCards({super.key});
+  final ReportsSummary? summary;
+
+  const SalesKpiCards({super.key, this.summary});
 
   @override
   Widget build(BuildContext context) {
+    final s = summary;
+    final grossText = s != null ? CurrencyFormatter.format(s.totalGrossSales) : 'Rp 5.153.040';
+    final completedCount = s != null ? '${s.completedOrdersCount}' : '64';
+    final voidedCount = s != null ? '${s.voidedOrdersCount} Dibatalkan / Void' : '4 Dibatalkan / Void';
+    final aovText = s != null ? CurrencyFormatter.format(s.averageOrderValue) : 'Rp 75.780';
+
+    final totalPaid = (s?.qrisCount ?? 0) + (s?.cashCount ?? 0) + (s?.debitCount ?? 0);
+    final int qrisFlex;
+    final int cashFlex;
+    final int debitFlex;
+    final String qrisPct;
+    final String cashPct;
+    final String debitPct;
+
+    if (totalPaid > 0 && s != null) {
+      final q = (s.qrisCount * 100 / totalPaid).round();
+      final c = (s.cashCount * 100 / totalPaid).round();
+      final d = 100 - q - c;
+      qrisFlex = s.qrisCount > 0 ? s.qrisCount : 1;
+      cashFlex = s.cashCount > 0 ? s.cashCount : 1;
+      debitFlex = s.debitCount > 0 ? s.debitCount : 1;
+      qrisPct = '$q%';
+      cashPct = '$c%';
+      debitPct = '$d%';
+    } else {
+      qrisFlex = 55;
+      cashFlex = 30;
+      debitFlex = 15;
+      qrisPct = '55%';
+      cashPct = '30%';
+      debitPct = '15%';
+    }
+
     return Row(
       children: [
         // Card 1: Gross Sales
@@ -17,9 +54,9 @@ class SalesKpiCards extends StatelessWidget {
             icon: LucideIcons.trendingUp,
             iconColor: AppColors.primary,
             iconBg: AppColors.primary.withValues(alpha: 0.1),
-            valueWidget: const Text(
-              'Rp 5.153.040',
-              style: TextStyle(
+            valueWidget: Text(
+              grossText,
+              style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w800,
                 color: AppColors.onSurface,
@@ -70,20 +107,20 @@ class SalesKpiCards extends StatelessWidget {
             icon: LucideIcons.receipt,
             iconColor: AppColors.secondary,
             iconBg: AppColors.secondaryContainer.withValues(alpha: 0.2),
-            valueWidget: const Row(
+            valueWidget: Row(
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
                 Text(
-                  '64',
-                  style: TextStyle(
+                  completedCount,
+                  style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
                     color: AppColors.onSurface,
                   ),
                 ),
-                SizedBox(width: 6),
-                Text(
+                const SizedBox(width: 6),
+                const Text(
                   'Selesai',
                   style: TextStyle(
                     fontSize: 12,
@@ -93,14 +130,14 @@ class SalesKpiCards extends StatelessWidget {
                 ),
               ],
             ),
-            footerWidget: const Row(
+            footerWidget: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(LucideIcons.xCircle, size: 12, color: AppColors.error),
-                SizedBox(width: 4),
+                const Icon(LucideIcons.xCircle, size: 12, color: AppColors.error),
+                const SizedBox(width: 4),
                 Text(
-                  '4 Dibatalkan / Void',
-                  style: TextStyle(fontSize: 11, color: AppColors.error),
+                  voidedCount,
+                  style: const TextStyle(fontSize: 11, color: AppColors.error),
                 ),
               ],
             ),
@@ -114,9 +151,9 @@ class SalesKpiCards extends StatelessWidget {
             icon: LucideIcons.barChart2,
             iconColor: AppColors.tertiary,
             iconBg: AppColors.tertiaryContainer.withValues(alpha: 0.15),
-            valueWidget: const Text(
-              'Rp 75.780',
-              style: TextStyle(
+            valueWidget: Text(
+              aovText,
+              style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w800,
                 color: AppColors.onSurface,
@@ -176,15 +213,15 @@ class SalesKpiCards extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        flex: 55,
+                        flex: qrisFlex,
                         child: Container(height: 8, color: AppColors.primary),
                       ),
                       Expanded(
-                        flex: 30,
+                        flex: cashFlex,
                         child: Container(height: 8, color: AppColors.secondary),
                       ),
                       Expanded(
-                        flex: 15,
+                        flex: debitFlex,
                         child: Container(height: 8, color: AppColors.onSurfaceVariant),
                       ),
                     ],
@@ -193,31 +230,31 @@ class SalesKpiCards extends StatelessWidget {
                 const SizedBox(height: 6),
               ],
             ),
-            footerWidget: const Row(
+            footerWidget: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleAvatar(radius: 3, backgroundColor: AppColors.primary),
-                    SizedBox(width: 3),
-                    Text('QRIS 55%', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
+                    const CircleAvatar(radius: 3, backgroundColor: AppColors.primary),
+                    const SizedBox(width: 3),
+                    Text('QRIS $qrisPct', style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
                   ],
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleAvatar(radius: 3, backgroundColor: AppColors.secondary),
-                    SizedBox(width: 3),
-                    Text('Tunai 30%', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
+                    const CircleAvatar(radius: 3, backgroundColor: AppColors.secondary),
+                    const SizedBox(width: 3),
+                    Text('Tunai $cashPct', style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
                   ],
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleAvatar(radius: 3, backgroundColor: AppColors.onSurfaceVariant),
-                    SizedBox(width: 3),
-                    Text('Kartu 15%', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
+                    const CircleAvatar(radius: 3, backgroundColor: AppColors.onSurfaceVariant),
+                    const SizedBox(width: 3),
+                    Text('Kartu $debitPct', style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
                   ],
                 ),
               ],
@@ -285,3 +322,4 @@ class SalesKpiCards extends StatelessWidget {
     );
   }
 }
+

@@ -1,119 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constants/app_colors.dart';
 import 'models/mock_pos_data.dart';
 import 'models/pos_models.dart';
+import 'providers/pos_providers.dart';
 import 'widgets/cart_panel.dart';
 import 'widgets/category_filter_bar.dart';
 import 'widgets/checkout_modal.dart';
 import 'widgets/pos_top_bar.dart';
 import 'widgets/product_card.dart';
 
-class PosScreen extends StatefulWidget {
+class PosScreen extends ConsumerStatefulWidget {
   const PosScreen({super.key});
 
   @override
-  State<PosScreen> createState() => _PosScreenState();
+  ConsumerState<PosScreen> createState() => _PosScreenState();
 }
 
-class _PosScreenState extends State<PosScreen> {
+class _PosScreenState extends ConsumerState<PosScreen> {
   String _searchQuery = '';
   int _selectedCategoryId = 0;
-  OrderType _selectedOrderType = OrderType.dineIn;
-  final String _selectedTable = 'MEJA 08';
 
-  final List<CartItemModel> _cartItems = [
-    CartItemModel(
-      product: mockProducts[1], // Spanish Latte Macchiato
-      quantity: 2,
-      notes: 'Kurang Gula, Tambah Oat Milk',
-    ),
-    CartItemModel(
-      product: mockProducts[0], // Smoked Beef Brisket Croissant
-      quantity: 1,
-      notes: 'Hangat, ekstra saus mustard',
-    ),
-    CartItemModel(
-      product: mockProducts[4], // Matcha Cold Foam Cloud
-      quantity: 1,
-      notes: 'Es & manis standar',
-    ),
-  ];
-
-  List<ProductModel> get _filteredProducts {
-    return mockProducts.where((p) {
-      final matchesCategory =
-          _selectedCategoryId == 0 || p.categoryId == _selectedCategoryId;
-      final matchesSearch = _searchQuery.isEmpty ||
-          p.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-          p.sku.toLowerCase().contains(_searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
+  List<ProductModel> _mapProducts(List<dynamic> dbProducts) {
+    if (dbProducts.isEmpty) return mockProducts;
+    return dbProducts.map((p) {
+      return ProductModel(
+        id: p.id,
+        categoryId: p.categoryId,
+        categoryName: p.categoryId == 1
+            ? 'Kopi'
+            : p.categoryId == 2
+                ? 'Pastry'
+                : p.categoryId == 3
+                    ? 'Makanan'
+                    : 'Minuman',
+        name: p.name,
+        sku: p.sku,
+        price: p.price,
+        imageUrl: p.imagePath ?? 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80',
+        stock: 15,
+        isAvailable: p.isAvailable,
+      );
     }).toList();
   }
 
-  void _addToCart(ProductModel product) {
-    setState(() {
-      final existingIndex =
-          _cartItems.indexWhere((item) => item.product.id == product.id);
-      if (existingIndex != -1) {
-        _cartItems[existingIndex].quantity += 1;
-      } else {
-        _cartItems.add(CartItemModel(product: product, quantity: 1));
-      }
-    });
-  }
-
-  void _updateQuantity(CartItemModel item, int newQuantity) {
-    setState(() {
-      if (newQuantity <= 0) {
-        _cartItems.remove(item);
-      } else {
-        item.quantity = newQuantity;
-      }
-    });
-  }
-
-  void _updateNotes(CartItemModel item, String newNotes) {
-    setState(() {
-      item.notes = newNotes;
-    });
-  }
-
-  void _clearCart() {
-    setState(() {
-      _cartItems.clear();
-    });
-  }
-
-  void _openCheckoutModal() {
-    final subtotal =
-        _cartItems.fold(0, (sum, item) => sum + item.subtotal);
-    final discount = (subtotal * 0.10).round();
-    final service = ((subtotal - discount) * 0.05).round();
-    final tax = (((subtotal - discount) + service) * 0.11).round();
-    final grandTotal = (subtotal - discount) + service + tax;
-
+  void _openCheckoutModal(CartState cart) {
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         return CheckoutModal(
-          cartItems: _cartItems,
-          totalAmount: grandTotal,
-          onPaymentSuccess: () {
-            setState(() {
-              _cartItems.clear();
-            });
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                backgroundColor: AppColors.secondary,
-                content: Text(
-                  'Pembayaran berhasil diverifikasi! Struk telah dicetak.',
-                  style: TextStyle(fontWeight: FontWeight.w600),
+          cartItems: cart.items,
+          totalAmount: cart.grandTotal,
+          onPaymentSuccess: () async {
+            await ref.read(cartNotifierProvider.notifier).checkout('Tunai / QRIS');
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  backgroundColor: AppColors.secondary,
+                  content: Text(
+                    'Transaksi berhasil disimpan ke database & struk dicetak!',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  behavior: SnackBarBehavior.floating,
                 ),
-                behavior: SnackBarBehavior.floating,
-              ),
-            );
+              );
+            }
           },
         );
       },
@@ -122,6 +75,24 @@ class _PosScreenState extends State<PosScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cart = ref.watch(cartNotifierProvider);
+    final cartNotifier = ref.read(cartNotifierProvider.notifier);
+    final productsAsync = ref.watch(productsStreamProvider);
+
+    final allProducts = productsAsync.maybeWhen(
+      data: (list) => _mapProducts(list),
+      orElse: () => mockProducts,
+    );
+
+    final filteredProducts = allProducts.where((p) {
+      final matchesCategory =
+          _selectedCategoryId == 0 || p.categoryId == _selectedCategoryId;
+      final matchesSearch = _searchQuery.isEmpty ||
+          p.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+          p.sku.toLowerCase().contains(_searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    }).toList();
+
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Row(
@@ -132,18 +103,15 @@ class _PosScreenState extends State<PosScreen> {
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  // Top action bar
                   PosTopBar(
                     searchQuery: _searchQuery,
                     onSearchChanged: (val) => setState(() => _searchQuery = val),
-                    selectedOrderType: _selectedOrderType,
-                    onOrderTypeChanged: (type) =>
-                        setState(() => _selectedOrderType = type),
-                    selectedTable: _selectedTable,
+                    selectedOrderType: cart.orderType,
+                    onOrderTypeChanged: (type) => cartNotifier.setOrderType(type),
+                    selectedTable: cart.selectedTableNumber,
                     onTableTap: () {},
                   ),
                   const SizedBox(height: 12),
-                  // Category carousel
                   CategoryFilterBar(
                     categories: mockCategories,
                     selectedCategoryId: _selectedCategoryId,
@@ -151,9 +119,8 @@ class _PosScreenState extends State<PosScreen> {
                         setState(() => _selectedCategoryId = id),
                   ),
                   const SizedBox(height: 16),
-                  // Product Grid Matrix
                   Expanded(
-                    child: _filteredProducts.isEmpty
+                    child: filteredProducts.isEmpty
                         ? const Center(
                             child: Text(
                               'Tidak ada menu yang sesuai dengan pencarian.',
@@ -164,7 +131,7 @@ class _PosScreenState extends State<PosScreen> {
                             ),
                           )
                         : GridView.builder(
-                            itemCount: _filteredProducts.length,
+                            itemCount: filteredProducts.length,
                             gridDelegate:
                                 const SliverGridDelegateWithMaxCrossAxisExtent(
                               maxCrossAxisExtent: 240,
@@ -173,10 +140,10 @@ class _PosScreenState extends State<PosScreen> {
                               childAspectRatio: 0.76,
                             ),
                             itemBuilder: (context, index) {
-                              final product = _filteredProducts[index];
+                              final product = filteredProducts[index];
                               return ProductCard(
                                 product: product,
-                                onAdd: () => _addToCart(product),
+                                onAdd: () => cartNotifier.addToCart(product),
                               );
                             },
                           ),
@@ -187,11 +154,13 @@ class _PosScreenState extends State<PosScreen> {
           ),
           // Right Area: Active Cart Ticket & Checkout (35%)
           CartPanel(
-            cartItems: _cartItems,
-            onClearCart: _clearCart,
-            onUpdateQuantity: _updateQuantity,
-            onUpdateNotes: _updateNotes,
-            onCheckout: _openCheckoutModal,
+            cartItems: cart.items,
+            onClearCart: cartNotifier.clearCart,
+            onUpdateQuantity: (item, qty) =>
+                cartNotifier.updateQuantity(item, qty),
+            onUpdateNotes: (item, notes) =>
+                cartNotifier.updateNotes(item, notes),
+            onCheckout: () => _openCheckoutModal(cart),
           ),
         ],
       ),
