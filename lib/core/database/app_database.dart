@@ -37,17 +37,17 @@ class AppDatabase extends _$AppDatabase {
       },
       onUpgrade: (m, from, to) async {
         if (from < 2) {
-          await m.createTable(users);
-          await m.createTable(shifts);
-          await m.createTable(modifierGroups);
-          await m.createTable(modifierOptions);
-          await m.createTable(productModifiers);
-          await m.addColumn(products, products.stock);
-          await m.addColumn(orders, orders.userId);
-          await m.addColumn(orders, orders.shiftId);
-          await m.addColumn(orders, orders.voidedBy);
-          await m.addColumn(orders, orders.voidReason);
-          await m.addColumn(orderItems, orderItems.selectedModifiers);
+          await _safeCreateTable(m, users);
+          await _safeCreateTable(m, shifts);
+          await _safeCreateTable(m, modifierGroups);
+          await _safeCreateTable(m, modifierOptions);
+          await _safeCreateTable(m, productModifiers);
+          await _safeAddColumn('products', 'stock', () => m.addColumn(products, products.stock));
+          await _safeAddColumn('orders', 'user_id', () => m.addColumn(orders, orders.userId));
+          await _safeAddColumn('orders', 'shift_id', () => m.addColumn(orders, orders.shiftId));
+          await _safeAddColumn('orders', 'voided_by', () => m.addColumn(orders, orders.voidedBy));
+          await _safeAddColumn('orders', 'void_reason', () => m.addColumn(orders, orders.voidReason));
+          await _safeAddColumn('order_items', 'selected_modifiers', () => m.addColumn(orderItems, orderItems.selectedModifiers));
         }
       },
       beforeOpen: (details) async {
@@ -55,6 +55,26 @@ class AppDatabase extends _$AppDatabase {
         await DatabaseSeeder.seedInitialData(this);
       },
     );
+  }
+
+  Future<void> _safeCreateTable(Migrator m, TableInfo table) async {
+    try {
+      await m.createTable(table);
+    } catch (_) {
+      // Table already exists or creation failed safely
+    }
+  }
+
+  Future<void> _safeAddColumn(String tableName, String columnName, Future<void> Function() add) async {
+    try {
+      final rows = await customSelect('PRAGMA table_info("$tableName")').get();
+      final exists = rows.any((r) => r.read<String>('name').toLowerCase() == columnName.toLowerCase());
+      if (!exists) {
+        await add();
+      }
+    } catch (_) {
+      // Column check or add failed safely
+    }
   }
 
   // ================= USERS CRUD & AUTH =================

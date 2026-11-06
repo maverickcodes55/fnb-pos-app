@@ -373,3 +373,4 @@ class _ProductModifierModalState extends ConsumerState<ProductModifierModal> {
     );
   }
 }
+

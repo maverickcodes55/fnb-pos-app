@@ -74,3 +74,4 @@ final shiftControllerProvider = Provider<ShiftController>((ref) {
   final db = ref.watch(databaseProvider);
   return ShiftController(db);
 });
+
