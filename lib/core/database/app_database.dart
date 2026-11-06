@@ -80,24 +80,44 @@ class AppDatabase extends _$AppDatabase {
   // ================= USERS CRUD & AUTH =================
   Stream<List<User>> watchUsers() => (select(users)..where((u) => u.isActive.equals(true))).watch();
   Future<List<User>> getAllUsers() => select(users).get();
-  Future<User?> getUserById(int id) => (select(users)..where((u) => u.id.equals(id))).getSingleOrNull();
-  Future<User?> authenticateByPin(int userId, String pin) =>
-      (select(users)..where((u) => u.id.equals(userId) & u.pin.equals(pin) & u.isActive.equals(true)))
-          .getSingleOrNull();
-  Future<User?> verifyManagerOrAdminPin(String pin) =>
-      (select(users)..where((u) => u.pin.equals(pin) & (u.role.equals('admin') | u.role.equals('manager')) & u.isActive.equals(true)))
-          .getSingleOrNull();
+  Future<User?> getUserById(int id) async {
+    final list = await (select(users)..where((u) => u.id.equals(id))..limit(1)).get();
+    return list.firstOrNull;
+  }
+
+  Future<User?> authenticateByPin(int userId, String pin) async {
+    final list = await (select(users)
+          ..where((u) => u.id.equals(userId) & u.pin.equals(pin) & u.isActive.equals(true))
+          ..limit(1))
+        .get();
+    return list.firstOrNull;
+  }
+
+  Future<User?> verifyManagerOrAdminPin(String pin) async {
+    final list = await (select(users)
+          ..where((u) => u.pin.equals(pin) & (u.role.equals('admin') | u.role.equals('manager')) & u.isActive.equals(true))
+          ..limit(1))
+        .get();
+    return list.firstOrNull;
+  }
+
   Future<int> insertUser(UsersCompanion user) => into(users).insert(user);
   Future<bool> updateUser(Insertable<User> user) => update(users).replace(user);
   Future<int> deleteUser(int id) => (delete(users)..where((u) => u.id.equals(id))).go();
 
   // ================= SHIFTS MANAGEMENT =================
   Stream<Shift?> watchActiveShift() =>
-      (select(shifts)..where((s) => s.status.equals('open'))..orderBy([(s) => OrderingTerm.desc(s.openedAt)]))
+      (select(shifts)..where((s) => s.status.equals('open'))..orderBy([(s) => OrderingTerm.desc(s.openedAt)])..limit(1))
           .watchSingleOrNull();
-  Future<Shift?> getActiveShift() =>
-      (select(shifts)..where((s) => s.status.equals('open'))..orderBy([(s) => OrderingTerm.desc(s.openedAt)]))
-          .getSingleOrNull();
+
+  Future<Shift?> getActiveShift() async {
+    final list = await (select(shifts)
+          ..where((s) => s.status.equals('open'))
+          ..orderBy([(s) => OrderingTerm.desc(s.openedAt)])
+          ..limit(1))
+        .get();
+    return list.firstOrNull;
+  }
   Stream<List<Shift>> watchShifts() => (select(shifts)..orderBy([(s) => OrderingTerm.desc(s.openedAt)])).watch();
 
   Future<int> openShift({required int userId, required int startingCash}) {

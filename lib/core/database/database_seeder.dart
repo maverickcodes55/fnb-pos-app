@@ -6,6 +6,44 @@ class DatabaseSeeder {
   DatabaseSeeder._();
 
   static Future<void> seedInitialData(AppDatabase db) async {
+    // Self-healing: Deduplicate any duplicate users, categories, or open shifts from previous runs
+    try {
+      final allCategories = await db.select(db.categories).get();
+      final seenCategoryNames = <String>{};
+      for (final cat in allCategories) {
+        if (seenCategoryNames.contains(cat.name)) {
+          await (db.delete(db.categories)..where((c) => c.id.equals(cat.id))).go();
+        } else {
+          seenCategoryNames.add(cat.name);
+        }
+      }
+
+      final allUsers = await db.select(db.users).get();
+      final seenUsernames = <String>{};
+      for (final u in allUsers) {
+        if (seenUsernames.contains(u.username)) {
+          await (db.delete(db.users)..where((user) => user.id.equals(u.id))).go();
+        } else {
+          seenUsernames.add(u.username);
+        }
+      }
+
+      final openShifts = await (db.select(db.shifts)
+            ..where((s) => s.status.equals('open'))
+            ..orderBy([(s) => OrderingTerm.desc(s.openedAt)]))
+          .get();
+      if (openShifts.length > 1) {
+        for (int i = 1; i < openShifts.length; i++) {
+          await (db.update(db.shifts)..where((s) => s.id.equals(openShifts[i].id))).write(
+            ShiftsCompanion(
+              status: const Value('closed'),
+              closedAt: Value(DateTime.now()),
+            ),
+          );
+        }
+      }
+    } catch (_) {}
+
     // 1. Seed Default Users (Safe & Idempotent by username)
     await _getOrInsertUser(
       db,
@@ -303,17 +341,17 @@ class DatabaseSeeder {
     }
   }
 
-  // Helper methods to guarantee zero constraint conflicts:
+  // Helper methods to guarantee zero constraint conflicts and never throw "Too many elements":
 
   static Future<int> _getOrInsertUser(AppDatabase db, UsersCompanion user) async {
-    final existing = await (db.select(db.users)..where((u) => u.username.equals(user.username.value))).getSingleOrNull();
-    if (existing != null) return existing.id;
+    final list = await (db.select(db.users)..where((u) => u.username.equals(user.username.value))).get();
+    if (list.isNotEmpty) return list.first.id;
     return await db.into(db.users).insert(user, mode: InsertMode.insertOrReplace);
   }
 
   static Future<int> _getOrInsertCategory(AppDatabase db, String name, String iconName) async {
-    final existing = await (db.select(db.categories)..where((c) => c.name.equals(name))).getSingleOrNull();
-    if (existing != null) return existing.id;
+    final list = await (db.select(db.categories)..where((c) => c.name.equals(name))).get();
+    if (list.isNotEmpty) return list.first.id;
     return await db.into(db.categories).insert(
       CategoriesCompanion.insert(name: name, iconName: Value(iconName)),
     );
@@ -326,8 +364,8 @@ class DatabaseSeeder {
     required int minSelect,
     required int maxSelect,
   }) async {
-    final existing = await (db.select(db.modifierGroups)..where((g) => g.name.equals(name))).getSingleOrNull();
-    if (existing != null) return existing.id;
+    final list = await (db.select(db.modifierGroups)..where((g) => g.name.equals(name))).get();
+    if (list.isNotEmpty) return list.first.id;
     return await db.into(db.modifierGroups).insert(
       ModifierGroupsCompanion.insert(
         name: name,
@@ -344,9 +382,9 @@ class DatabaseSeeder {
     required String name,
     required int extraPrice,
   }) async {
-    final existing = await (db.select(db.modifierOptions)
-      ..where((o) => o.groupId.equals(groupId) & o.name.equals(name))).getSingleOrNull();
-    if (existing == null) {
+    final list = await (db.select(db.modifierOptions)
+      ..where((o) => o.groupId.equals(groupId) & o.name.equals(name))).get();
+    if (list.isEmpty) {
       await db.into(db.modifierOptions).insert(
         ModifierOptionsCompanion.insert(
           groupId: groupId,
@@ -358,22 +396,22 @@ class DatabaseSeeder {
   }
 
   static Future<int> _getOrInsertProduct(AppDatabase db, ProductsCompanion product) async {
-    final existing = await (db.select(db.products)..where((p) => p.sku.equals(product.sku.value))).getSingleOrNull();
-    if (existing != null) return existing.id;
+    final list = await (db.select(db.products)..where((p) => p.sku.equals(product.sku.value))).get();
+    if (list.isNotEmpty) return list.first.id;
     return await db.into(db.products).insert(product, mode: InsertMode.insertOrReplace);
   }
 
   static Future<void> _safeLinkProductModifier(AppDatabase db, int productId, int groupId) async {
-    final existing = await (db.select(db.productModifiers)
-      ..where((pm) => pm.productId.equals(productId) & pm.groupId.equals(groupId))).getSingleOrNull();
-    if (existing == null) {
+    final list = await (db.select(db.productModifiers)
+      ..where((pm) => pm.productId.equals(productId) & pm.groupId.equals(groupId))).get();
+    if (list.isEmpty) {
       await db.linkProductModifier(productId, groupId);
     }
   }
 
   static Future<int> _getOrInsertTable(AppDatabase db, String tableNumber, int capacity, String status) async {
-    final existing = await (db.select(db.restaurantTables)..where((t) => t.tableNumber.equals(tableNumber))).getSingleOrNull();
-    if (existing != null) return existing.id;
+    final list = await (db.select(db.restaurantTables)..where((t) => t.tableNumber.equals(tableNumber))).get();
+    if (list.isNotEmpty) return list.first.id;
     return await db.into(db.restaurantTables).insert(
       RestaurantTablesCompanion.insert(
         tableNumber: tableNumber,
