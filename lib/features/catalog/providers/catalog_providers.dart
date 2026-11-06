@@ -6,14 +6,18 @@ import '../models/catalog_models.dart';
 
 final catalogProductsStreamProvider = StreamProvider<List<CatalogProduct>>((ref) {
   final db = ref.watch(databaseProvider);
-  return db.watchProducts().map((products) {
-    return products.map((p) {
+  return db.select(db.products).join([
+    leftOuterJoin(db.categories, db.categories.id.equalsExp(db.products.categoryId)),
+  ]).watch().map((rows) {
+    return rows.map((row) {
+      final p = row.readTable(db.products);
+      final c = row.readTableOrNull(db.categories);
       return CatalogProduct(
         id: p.id,
         name: p.name,
         sku: p.sku,
         categoryId: p.categoryId,
-        categoryName: _mapCategoryName(p.categoryId),
+        categoryName: c?.name ?? 'Umum',
         price: p.price,
         stock: p.stock,
         isAvailable: p.isAvailable,
@@ -22,23 +26,6 @@ final catalogProductsStreamProvider = StreamProvider<List<CatalogProduct>>((ref)
     }).toList();
   });
 });
-
-String _mapCategoryName(int categoryId) {
-  switch (categoryId) {
-    case 1:
-      return 'Kopi Spesialti';
-    case 2:
-      return 'Pastry & Roti Artisan';
-    case 3:
-      return 'Menu Utama';
-    case 4:
-      return 'Minuman Dingin';
-    case 5:
-      return 'Pencuci Mulut';
-    default:
-      return 'Umum';
-  }
-}
 
 class CatalogController {
   final AppDatabase db;

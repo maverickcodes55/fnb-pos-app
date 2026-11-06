@@ -12,7 +12,7 @@ class DatabaseSeeder {
 
     // 1. Seed Default Users with PINs:
     // Admin: 111111 | Manager: 222222 | Cashier: 333333
-    final adminId = await db.into(db.users).insert(
+    await db.into(db.users).insert(
       UsersCompanion.insert(
         name: 'Admin Sistem',
         username: 'admin',
@@ -22,7 +22,7 @@ class DatabaseSeeder {
       ),
     );
 
-    final managerId = await db.into(db.users).insert(
+    await db.into(db.users).insert(
       UsersCompanion.insert(
         name: 'Budi Santoso',
         username: 'budi_mgr',
@@ -148,7 +148,7 @@ class DatabaseSeeder {
         isAvailable: const Value(true),
       ),
     );
-    final prodPasta = await db.into(db.products).insert(
+    await db.into(db.products).insert(
       ProductsCompanion.insert(
         categoryId: catMain,
         name: 'Truffle Parmesan Pasta',
@@ -159,7 +159,7 @@ class DatabaseSeeder {
         isAvailable: const Value(true),
       ),
     );
-    final prodSourdough = await db.into(db.products).insert(
+    await db.into(db.products).insert(
       ProductsCompanion.insert(
         categoryId: catPastry,
         name: 'Artisan Butter Sourdough Toast',
@@ -181,7 +181,7 @@ class DatabaseSeeder {
         isAvailable: const Value(true),
       ),
     );
-    final prodSalmon = await db.into(db.products).insert(
+    await db.into(db.products).insert(
       ProductsCompanion.insert(
         categoryId: catMain,
         name: 'Pan-Seared Salmon Citrus',
@@ -192,7 +192,7 @@ class DatabaseSeeder {
         isAvailable: const Value(true),
       ),
     );
-    final prodCannoli = await db.into(db.products).insert(
+    await db.into(db.products).insert(
       ProductsCompanion.insert(
         categoryId: catDessert,
         name: 'Classic Pistachio Cannoli',

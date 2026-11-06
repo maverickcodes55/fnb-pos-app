@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constants/app_colors.dart';
-import 'models/mock_pos_data.dart';
+import '../../core/database/app_database.dart';
 import 'models/pos_models.dart';
 import 'providers/pos_providers.dart';
 import 'widgets/cart_panel.dart';
@@ -11,6 +11,7 @@ import 'widgets/category_filter_bar.dart';
 import 'widgets/checkout_modal.dart';
 import 'widgets/pos_top_bar.dart';
 import 'widgets/product_card.dart';
+import 'widgets/product_modifier_modal.dart';
 import 'widgets/receipt_preview_dialog.dart';
 
 class PosScreen extends ConsumerStatefulWidget {
@@ -33,27 +34,29 @@ class _PosScreenState extends ConsumerState<PosScreen> {
     super.dispose();
   }
 
-  List<ProductModel> _mapProducts(List<dynamic> dbProducts) {
-    if (dbProducts.isEmpty) return mockProducts;
-    return dbProducts.map((p) {
-      return ProductModel(
-        id: p.id,
-        categoryId: p.categoryId,
-        categoryName: p.categoryId == 1
-            ? 'Kopi'
-            : p.categoryId == 2
-                ? 'Pastry'
-                : p.categoryId == 3
-                    ? 'Makanan'
-                    : 'Minuman',
-        name: p.name,
-        sku: p.sku,
-        price: p.price,
-        imageUrl: p.imagePath ?? 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80',
-        stock: 15,
-        isAvailable: p.isAvailable,
+  void _onProductTap(ProductModel product) async {
+    final db = ref.read(databaseProvider);
+    final modifierGroups = await db.getProductModifierGroups(product.id);
+
+    if (!mounted) return;
+
+    if (modifierGroups.isNotEmpty) {
+      // Show dynamic modifier selection modal
+      ProductModifierModal.show(
+        context,
+        product: product,
+        onConfirm: (modifiers, notes) {
+          ref.read(cartNotifierProvider.notifier).addToCart(
+                product,
+                modifiers: modifiers,
+                notes: notes,
+              );
+        },
       );
-    }).toList();
+    } else {
+      // Add directly
+      ref.read(cartNotifierProvider.notifier).addToCart(product);
+    }
   }
 
   void _openCheckoutModal(CartState cart) {
@@ -65,7 +68,6 @@ class _PosScreenState extends ConsumerState<PosScreen> {
           cartItems: cart.items,
           totalAmount: cart.grandTotal,
           onPaymentSuccess: () async {
-            // Snapshot current cart state for receipt preview
             final orderNumber = '#ORD-${DateTime.now().millisecondsSinceEpoch.toString().substring(7)}';
             final itemsSnapshot = List<CartItemModel>.from(cart.items);
             final subtotal = cart.subtotal;
@@ -75,7 +77,7 @@ class _PosScreenState extends ConsumerState<PosScreen> {
             final orderTypeStr = cart.orderType == OrderType.dineIn ? 'Dine In' : 'Takeaway';
             final tableNumber = cart.selectedTableNumber;
 
-            // Commit checkout to Drift database & clear cart
+            // Execute atomic complete transaction in Drift
             await ref.read(cartNotifierProvider.notifier).checkout('Tunai / QRIS');
 
             if (mounted) {
@@ -108,15 +110,39 @@ class _PosScreenState extends ConsumerState<PosScreen> {
     final cart = ref.watch(cartNotifierProvider);
     final cartNotifier = ref.read(cartNotifierProvider.notifier);
     final productsAsync = ref.watch(productsStreamProvider);
+    final categoriesAsync = ref.watch(categoriesStreamProvider);
 
-    final allProducts = productsAsync.maybeWhen(
-      data: (list) => _mapProducts(list),
-      orElse: () => mockProducts,
-    );
+    final dbCategories = categoriesAsync.value ?? [];
+    final dbProducts = productsAsync.value ?? [];
+
+    final categoryMap = {for (final c in dbCategories) c.id: c.name};
+
+    final allProducts = dbProducts.map((p) {
+      return ProductModel(
+        id: p.id,
+        categoryId: p.categoryId,
+        categoryName: categoryMap[p.categoryId] ?? 'Katalog',
+        name: p.name,
+        sku: p.sku,
+        price: p.price,
+        imageUrl: p.imagePath ?? 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80',
+        stock: p.stock,
+        isAvailable: p.isAvailable && p.stock > 0,
+      );
+    }).toList();
+
+    final categoryFilterList = [
+      CategoryModel(id: 0, name: 'Semua Menu', iconName: 'all', count: allProducts.length),
+      ...dbCategories.map((c) => CategoryModel(
+            id: c.id,
+            name: c.name,
+            iconName: c.iconName,
+            count: allProducts.where((p) => p.categoryId == c.id).length,
+          )),
+    ];
 
     final filteredProducts = allProducts.where((p) {
-      final matchesCategory =
-          _selectedCategoryId == 0 || p.categoryId == _selectedCategoryId;
+      final matchesCategory = _selectedCategoryId == 0 || p.categoryId == _selectedCategoryId;
       final matchesSearch = _searchQuery.isEmpty ||
           p.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
           p.sku.toLowerCase().contains(_searchQuery.toLowerCase());
@@ -129,9 +155,7 @@ class _PosScreenState extends ConsumerState<PosScreen> {
           _searchFocusNode.requestFocus();
         },
         const SingleActivator(LogicalKeyboardKey.f2): () {
-          final nextType = cart.orderType == OrderType.dineIn
-              ? OrderType.takeaway
-              : OrderType.dineIn;
+          final nextType = cart.orderType == OrderType.dineIn ? OrderType.takeaway : OrderType.dineIn;
           cartNotifier.setOrderType(nextType);
         },
         const SingleActivator(LogicalKeyboardKey.f12): () {
@@ -169,10 +193,9 @@ class _PosScreenState extends ConsumerState<PosScreen> {
                       ),
                       const SizedBox(height: 12),
                       CategoryFilterBar(
-                        categories: mockCategories,
+                        categories: categoryFilterList,
                         selectedCategoryId: _selectedCategoryId,
-                        onCategorySelected: (id) =>
-                            setState(() => _selectedCategoryId = id),
+                        onCategorySelected: (id) => setState(() => _selectedCategoryId = id),
                       ),
                       const SizedBox(height: 16),
                       Expanded(
@@ -188,8 +211,7 @@ class _PosScreenState extends ConsumerState<PosScreen> {
                               )
                             : GridView.builder(
                                 itemCount: filteredProducts.length,
-                                gridDelegate:
-                                    const SliverGridDelegateWithMaxCrossAxisExtent(
+                                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                                   maxCrossAxisExtent: 240,
                                   crossAxisSpacing: 12,
                                   mainAxisSpacing: 12,
@@ -199,7 +221,7 @@ class _PosScreenState extends ConsumerState<PosScreen> {
                                   final product = filteredProducts[index];
                                   return ProductCard(
                                     product: product,
-                                    onAdd: () => cartNotifier.addToCart(product),
+                                    onAdd: () => _onProductTap(product),
                                   );
                                 },
                               ),
@@ -212,10 +234,8 @@ class _PosScreenState extends ConsumerState<PosScreen> {
               CartPanel(
                 cartItems: cart.items,
                 onClearCart: cartNotifier.clearCart,
-                onUpdateQuantity: (item, qty) =>
-                    cartNotifier.updateQuantity(item, qty),
-                onUpdateNotes: (item, notes) =>
-                    cartNotifier.updateNotes(item, notes),
+                onUpdateQuantity: (item, qty) => cartNotifier.updateQuantity(item, qty),
+                onUpdateNotes: (item, notes) => cartNotifier.updateNotes(item, notes),
                 onCheckout: () => _openCheckoutModal(cart),
               ),
             ],

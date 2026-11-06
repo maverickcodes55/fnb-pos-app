@@ -311,6 +311,19 @@ class CartPanel extends StatelessWidget {
                                           ),
                                         ],
                                       ),
+                                      if (item.selectedModifiers.isNotEmpty) ...[
+                                        const SizedBox(height: 2),
+                                        Text(
+                                          '+ ${item.modifiersSummary}',
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            fontSize: 10,
+                                            color: AppColors.primary,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
                                       if (item.notes != null &&
                                           item.notes!.isNotEmpty) ...[
                                         const SizedBox(height: 2),

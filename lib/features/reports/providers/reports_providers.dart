@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/database/app_database.dart';
 import '../../orders/providers/orders_providers.dart';
-import '../models/mock_reports_data.dart';
 import '../models/report_models.dart';
 
 final allOrderItemsStreamProvider = StreamProvider<List<OrderItem>>((ref) {
@@ -48,7 +47,7 @@ final reportsTransactionsProvider = Provider<AsyncValue<List<TransactionRecord>>
   final tables = tablesAsync.value ?? [];
 
   if (orders.isEmpty) {
-    return AsyncValue.data(initialMockTransactions);
+    return const AsyncValue.data([]);
   }
 
   final tableMap = {for (final t in tables) t.id: t.tableNumber};
@@ -112,7 +111,7 @@ final reportsTransactionsProvider = Provider<AsyncValue<List<TransactionRecord>>
 
 final reportsSummaryProvider = Provider<ReportsSummary>((ref) {
   final recordsAsync = ref.watch(reportsTransactionsProvider);
-  final records = recordsAsync.value ?? initialMockTransactions;
+  final records = recordsAsync.value ?? [];
 
   int gross = 0;
   int completed = 0;

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fnb_pos_app/core/database/app_database.dart';
 import 'package:fnb_pos_app/features/catalog/widgets/product_form_drawer.dart';
 import 'package:fnb_pos_app/features/pos/models/pos_models.dart';
+import 'package:fnb_pos_app/features/pos/providers/pos_providers.dart';
 import 'package:fnb_pos_app/features/pos/widgets/receipt_preview_dialog.dart';
 import 'package:fnb_pos_app/main.dart';
 
@@ -18,7 +20,7 @@ void main() {
       ),
     );
 
-    expect(find.text('KASIR'), findsOneWidget);
+    expect(find.text('Pilih Staf Kasir'), findsOneWidget);
   });
 
   testWidgets('ReceiptPreviewDialog renders receipt details correctly', (WidgetTester tester) async {
@@ -72,20 +74,37 @@ void main() {
     addTearDown(() => tester.view.resetPhysicalSize());
 
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: ProductFormDrawer(
-            product: null,
-            onSave: (_) {},
-            onCancel: () {},
+      ProviderScope(
+        overrides: [
+          categoriesStreamProvider.overrideWith(
+            (ref) => Stream.value([
+              const Category(
+                id: 1,
+                name: 'Kopi Spesialti',
+                iconName: 'coffee',
+                isActive: true,
+              ),
+            ]),
+          ),
+        ],
+        child: MaterialApp(
+          home: Scaffold(
+            body: ProductFormDrawer(
+              product: null,
+              onSave: (_) {},
+              onCancel: () {},
+            ),
           ),
         ),
       ),
     );
 
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
     // Click Simpan while required name field is empty
     await tester.tap(find.text('Simpan'));
-    await tester.pumpAndSettle();
+    await tester.pump();
 
     expect(find.text('Nama menu wajib diisi'), findsOneWidget);
   });

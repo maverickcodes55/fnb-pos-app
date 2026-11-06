@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/database/app_database.dart';
+import '../../auth/providers/auth_providers.dart';
 import '../models/pos_models.dart';
 
 final categoriesStreamProvider = StreamProvider<List<Category>>((ref) {
@@ -65,13 +66,29 @@ class CartNotifier extends StateNotifier<CartState> {
     );
   }
 
-  void addToCart(ProductModel product) {
+  void addToCart(
+    ProductModel product, {
+    List<ModifierOption> modifiers = const [],
+    String? notes,
+  }) {
     final list = List<CartItemModel>.from(state.items);
-    final idx = list.indexWhere((i) => i.product.id == product.id);
-    if (idx != -1) {
+    final modIds = modifiers.map((m) => m.id).toSet();
+
+    final idx = list.indexWhere((i) {
+      if (i.product.id != product.id) return false;
+      final existingModIds = i.selectedModifiers.map((m) => m.id).toSet();
+      return modIds.length == existingModIds.length && modIds.containsAll(existingModIds);
+    });
+
+    if (idx != -1 && (notes == null || notes == list[idx].notes)) {
       list[idx].quantity += 1;
     } else {
-      list.add(CartItemModel(product: product, quantity: 1));
+      list.add(CartItemModel(
+        product: product,
+        quantity: 1,
+        selectedModifiers: modifiers,
+        notes: notes,
+      ));
     }
     state = state.copyWith(items: list);
   }
@@ -79,9 +96,9 @@ class CartNotifier extends StateNotifier<CartState> {
   void updateQuantity(CartItemModel item, int newQty) {
     final list = List<CartItemModel>.from(state.items);
     if (newQty <= 0) {
-      list.removeWhere((i) => i.product.id == item.product.id);
+      list.remove(item);
     } else {
-      final idx = list.indexWhere((i) => i.product.id == item.product.id);
+      final idx = list.indexOf(item);
       if (idx != -1) {
         list[idx].quantity = newQty;
       }
@@ -91,7 +108,7 @@ class CartNotifier extends StateNotifier<CartState> {
 
   void updateNotes(CartItemModel item, String notes) {
     final list = List<CartItemModel>.from(state.items);
-    final idx = list.indexWhere((i) => i.product.id == item.product.id);
+    final idx = list.indexOf(item);
     if (idx != -1) {
       list[idx].notes = notes;
     }
@@ -104,10 +121,15 @@ class CartNotifier extends StateNotifier<CartState> {
 
   Future<int> checkout(String paymentMethod) async {
     final db = ref.read(databaseProvider);
+    final user = ref.read(currentUserProvider);
+    final activeShift = await db.getActiveShift();
+
     final orderNum = 'ORD-${DateTime.now().year}${DateTime.now().month.toString().padLeft(2, '0')}${DateTime.now().day.toString().padLeft(2, '0')}-${DateTime.now().millisecondsSinceEpoch.toString().substring(8)}';
 
     final orderCompanion = OrdersCompanion.insert(
       orderNumber: orderNum,
+      userId: user != null ? Value(user.id) : const Value.absent(),
+      shiftId: activeShift != null ? Value(activeShift.id) : const Value.absent(),
       tableId: state.selectedTableId != null ? Value(state.selectedTableId) : const Value.absent(),
       orderType: Value(state.orderType == OrderType.dineIn ? 'dine_in' : 'takeaway'),
       status: const Value('pending'),
@@ -124,13 +146,16 @@ class CartNotifier extends StateNotifier<CartState> {
         orderId: 0, // will be replaced in transaction
         productId: cartItem.product.id,
         productName: cartItem.product.name,
-        priceAtSale: cartItem.product.price,
+        priceAtSale: cartItem.unitPrice,
         quantity: Value(cartItem.quantity),
         notes: cartItem.notes != null ? Value(cartItem.notes) : const Value.absent(),
+        selectedModifiers: cartItem.selectedModifiers.isNotEmpty
+            ? Value(cartItem.modifiersSummary)
+            : const Value.absent(),
       );
     }).toList();
 
-    final orderId = await db.checkoutTransaction(
+    final orderId = await db.completeCheckoutTransaction(
       orderData: orderCompanion,
       items: itemCompanions,
       tableId: state.selectedTableId,
@@ -144,4 +169,3 @@ class CartNotifier extends StateNotifier<CartState> {
 final cartNotifierProvider = StateNotifierProvider<CartNotifier, CartState>((ref) {
   return CartNotifier(ref);
 });
-

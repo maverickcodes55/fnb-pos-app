@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constants/app_colors.dart';
 import 'models/catalog_models.dart';
-import 'models/mock_catalog_data.dart';
 import 'providers/catalog_providers.dart';
 import 'widgets/catalog_filter_bar.dart';
 import 'widgets/catalog_table.dart';
@@ -100,11 +99,7 @@ class _CatalogScreenState extends ConsumerState<CatalogScreen> {
   @override
   Widget build(BuildContext context) {
     final productsAsync = ref.watch(catalogProductsStreamProvider);
-
-    final products = productsAsync.maybeWhen(
-      data: (list) => list.isNotEmpty ? list : initialCatalogProducts,
-      orElse: () => initialCatalogProducts,
-    );
+    final products = productsAsync.value ?? [];
 
     if (_selectedProduct == null && products.isNotEmpty && !_isDrawerOpen) {
       _selectedProduct = products.first;

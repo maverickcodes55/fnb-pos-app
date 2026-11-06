@@ -4,7 +4,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 
 import '../../core/constants/app_colors.dart';
 import '../../core/database/app_database.dart';
-import 'models/mock_orders_data.dart';
+import '../reports/providers/reports_providers.dart';
 import 'models/order_models.dart';
 import 'providers/orders_providers.dart';
 import 'widgets/order_queue_view.dart';
@@ -147,38 +147,48 @@ class _OrdersScreenState extends ConsumerState<OrdersScreen> {
     }
   }
 
-  List<TableModel> _mapTables(List<RestaurantTable> dbTables) {
-    if (dbTables.isEmpty) return initialMockTables;
+  List<TableModel> _mapTables(List<RestaurantTable> dbTables, List<Order> dbOrders) {
     return dbTables.map((t) {
       final isOcc = t.status == 'occupied';
+      final matchingOrder = dbOrders
+          .where((o) => o.tableId == t.id && (o.status == 'pending' || o.status == 'ready'))
+          .firstOrNull;
       return TableModel(
         id: t.id,
         tableNumber: t.tableNumber,
         capacity: t.capacity,
         status: isOcc ? TableStatus.occupied : TableStatus.available,
-        guestName: isOcc ? 'Pelanggan Meja' : null,
-        activeOrderNumber: isOcc ? 'ORD-${t.id + 100}' : null,
-        totalAmount: isOcc ? (t.id * 45000 + 50000) : null,
+        guestName: isOcc ? (matchingOrder != null ? 'Tamu #${matchingOrder.id}' : 'Pelanggan Meja') : null,
+        activeOrderNumber: matchingOrder?.orderNumber,
+        totalAmount: matchingOrder?.totalAmount,
       );
     }).toList();
   }
 
-  List<ActiveOrderModel> _mapOrders(List<Order> dbOrders) {
-    if (dbOrders.isEmpty) return initialMockOrders;
+  List<ActiveOrderModel> _mapOrders(List<Order> dbOrders, List<OrderItem> allItems, List<RestaurantTable> tables) {
+    final tableMap = {for (final t in tables) t.id: t.tableNumber};
     return dbOrders
         .where((o) => o.status == 'pending' || o.status == 'ready')
         .map((o) {
+      final items = allItems.where((i) => i.orderId == o.id).map((i) {
+        return ActiveOrderItem(
+          productName: i.productName,
+          quantity: i.quantity,
+          notes: i.notes,
+        );
+      }).toList();
+
       return ActiveOrderModel(
         id: o.id,
         orderNumber: o.orderNumber,
-        tableNumber: o.tableId != null ? 'Meja ${o.tableId}' : null,
+        tableNumber: o.tableId != null ? (tableMap[o.tableId] ?? 'Meja ${o.tableId}') : null,
         orderType: o.orderType == 'dine_in' ? 'Dine-In' : 'Takeaway',
         status: o.status == 'ready' ? OrderQueueStatus.ready : OrderQueueStatus.pending,
         createdAt: o.createdAt,
         totalAmount: o.totalAmount,
-        items: const [
-          ActiveOrderItem(productName: 'Pesanan Masuk POS', quantity: 1),
-        ],
+        items: items.isEmpty
+            ? [const ActiveOrderItem(productName: 'Pesanan Masuk POS', quantity: 1)]
+            : items,
       );
     }).toList();
   }
@@ -187,16 +197,14 @@ class _OrdersScreenState extends ConsumerState<OrdersScreen> {
   Widget build(BuildContext context) {
     final tablesAsync = ref.watch(restaurantTablesStreamProvider);
     final ordersAsync = ref.watch(ordersStreamProvider);
+    final itemsAsync = ref.watch(allOrderItemsStreamProvider);
 
-    final tables = tablesAsync.maybeWhen(
-      data: (list) => _mapTables(list),
-      orElse: () => initialMockTables,
-    );
+    final dbTables = tablesAsync.value ?? [];
+    final dbOrders = ordersAsync.value ?? [];
+    final allItems = itemsAsync.value ?? [];
 
-    final activeOrders = ordersAsync.maybeWhen(
-      data: (list) => _mapOrders(list),
-      orElse: () => initialMockOrders,
-    );
+    final tables = _mapTables(dbTables, dbOrders);
+    final activeOrders = _mapOrders(dbOrders, allItems, dbTables);
 
     final occupiedCount = tables.where((t) => t.status == TableStatus.occupied).length;
     final availableCount = tables.where((t) => t.status == TableStatus.available).length;

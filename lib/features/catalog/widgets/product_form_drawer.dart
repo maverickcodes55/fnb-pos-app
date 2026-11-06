@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import '../../../core/constants/app_colors.dart';
+import '../../pos/providers/pos_providers.dart';
 import '../models/catalog_models.dart';
 
-class ProductFormDrawer extends StatefulWidget {
+class ProductFormDrawer extends ConsumerStatefulWidget {
   final CatalogProduct? product;
   final ValueChanged<CatalogProduct> onSave;
   final VoidCallback onCancel;
@@ -19,10 +21,10 @@ class ProductFormDrawer extends StatefulWidget {
   });
 
   @override
-  State<ProductFormDrawer> createState() => _ProductFormDrawerState();
+  ConsumerState<ProductFormDrawer> createState() => _ProductFormDrawerState();
 }
 
-class _ProductFormDrawerState extends State<ProductFormDrawer> {
+class _ProductFormDrawerState extends ConsumerState<ProductFormDrawer> {
   final _formKey = GlobalKey<FormState>();
   late TextEditingController _nameController;
   late TextEditingController _skuController;
@@ -32,16 +34,7 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
   late int _stock;
   late bool _isAvailable;
   late int _selectedCategoryId;
-  late String _selectedCategoryName;
   late String _imageUrl;
-
-  final Map<int, String> _categories = {
-    1: 'Kopi Spesialti',
-    2: 'Pastry & Roti Artisan',
-    3: 'Menu Utama',
-    4: 'Minuman Dingin',
-    5: 'Pencuci Mulut',
-  };
 
   @override
   void initState({Key? key}) {
@@ -67,7 +60,6 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
     _stock = p?.stock ?? 10;
     _isAvailable = p?.isAvailable ?? true;
     _selectedCategoryId = p?.categoryId ?? 1;
-    _selectedCategoryName = p?.categoryName ?? _categories[_selectedCategoryId]!;
     _imageUrl = p?.imageUrl ?? 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80';
   }
 
@@ -91,12 +83,16 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
     final costPrice = int.tryParse(_costPriceController.text.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
     final minStock = int.tryParse(_minStockController.text) ?? 5;
 
+    final categories = ref.read(categoriesStreamProvider).valueOrNull ?? [];
+    final category = categories.where((c) => c.id == _selectedCategoryId).firstOrNull;
+    final categoryName = category?.name ?? 'Umum';
+
     final result = CatalogProduct(
       id: widget.product?.id ?? DateTime.now().millisecondsSinceEpoch,
       name: name,
       sku: _skuController.text.trim(),
       categoryId: _selectedCategoryId,
-      categoryName: _categories[_selectedCategoryId] ?? 'Umum',
+      categoryName: categoryName,
       price: price,
       costPrice: costPrice,
       stock: _stock,
@@ -311,29 +307,48 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
                               color: AppColors.surfaceContainerLow,
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: DropdownButtonHideUnderline(
-                              child: DropdownButton<int>(
-                                value: _selectedCategoryId,
-                                isExpanded: true,
-                                icon: const Icon(LucideIcons.chevronDown, size: 14),
-                                items: _categories.entries.map((e) {
-                                  return DropdownMenuItem<int>(
-                                    value: e.key,
-                                    child: Text(
-                                      e.value,
-                                      style: const TextStyle(fontSize: 12),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  );
-                                }).toList(),
-                                onChanged: (val) {
-                                  if (val != null) {
-                                    setState(() {
-                                      _selectedCategoryId = val;
-                                      _selectedCategoryName = _categories[val]!;
-                                    });
-                                  }
-                                },
+                            child: ref.watch(categoriesStreamProvider).when(
+                              data: (categories) {
+                                if (categories.isEmpty) {
+                                  return const Center(child: Text('Kategori kosong', style: TextStyle(fontSize: 12)));
+                                }
+                                final validId = categories.any((c) => c.id == _selectedCategoryId)
+                                    ? _selectedCategoryId
+                                    : categories.first.id;
+                                return DropdownButtonHideUnderline(
+                                  child: DropdownButton<int>(
+                                    value: validId,
+                                    isExpanded: true,
+                                    icon: const Icon(LucideIcons.chevronDown, size: 14),
+                                    items: categories.map((c) {
+                                      return DropdownMenuItem<int>(
+                                        value: c.id,
+                                        child: Text(
+                                          c.name,
+                                          style: const TextStyle(fontSize: 12),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      );
+                                    }).toList(),
+                                    onChanged: (val) {
+                                      if (val != null) {
+                                        setState(() {
+                                          _selectedCategoryId = val;
+                                        });
+                                      }
+                                    },
+                                  ),
+                                );
+                              },
+                              loading: () => const Center(
+                                child: SizedBox(
+                                  width: 14,
+                                  height: 14,
+                                  child: CircularProgressIndicator(strokeWidth: 2),
+                                ),
+                              ),
+                              error: (_, __) => const Center(
+                                child: Text('Gagal memuat', style: TextStyle(fontSize: 12)),
                               ),
                             ),
                           ),

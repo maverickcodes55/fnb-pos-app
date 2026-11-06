@@ -22,6 +22,10 @@ class AppColors {
   static const Color onTertiary = Color(0xFFFFFFFF);
   static const Color tertiaryContainer = Color(0xFFA16800);
   static const Color onTertiaryContainer = Color(0xFFFFFBFF);
+  static const Color tertiaryFixed = Color(0xFFFFDDB5);
+  static const Color tertiaryFixedDim = Color(0xFFFFB957);
+  static const Color onTertiaryFixed = Color(0xFF2A1800);
+  static const Color onTertiaryFixedVariant = Color(0xFF643F00);
 
   // Error / Void Chili Red
   static const Color error = Color(0xFFBA1A1A);

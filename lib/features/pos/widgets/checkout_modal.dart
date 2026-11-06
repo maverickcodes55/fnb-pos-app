@@ -247,6 +247,13 @@ class _CheckoutModalState extends State<CheckoutModal> {
                                             overflow: TextOverflow.ellipsis,
                                             style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                                           ),
+                                          if (item.selectedModifiers.isNotEmpty)
+                                            Text(
+                                              '+ ${item.modifiersSummary}',
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: const TextStyle(fontSize: 10, color: AppColors.primary, fontWeight: FontWeight.w600),
+                                            ),
                                           if (item.notes != null && item.notes!.isNotEmpty)
                                             Text(
                                               item.notes!,

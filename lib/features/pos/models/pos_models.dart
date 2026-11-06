@@ -1,3 +1,5 @@
+import '../../../core/database/app_database.dart';
+
 enum OrderType {
   dineIn('Dine-In'),
   takeaway('Takeaway'),
@@ -51,13 +53,18 @@ class CartItemModel {
   final ProductModel product;
   int quantity;
   String? notes;
+  final List<ModifierOption> selectedModifiers;
 
   CartItemModel({
     required this.product,
     this.quantity = 1,
     this.notes,
+    this.selectedModifiers = const [],
   });
 
-  int get subtotal => product.price * quantity;
+  int get modifierExtra => selectedModifiers.fold(0, (sum, m) => sum + m.extraPrice);
+  int get unitPrice => product.price + modifierExtra;
+  int get subtotal => unitPrice * quantity;
+  String get modifiersSummary => selectedModifiers.map((m) => m.name).join(', ');
 }
 

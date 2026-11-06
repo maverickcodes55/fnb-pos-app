@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
-
-import '../../core/constants/app_colors.dart';
-import 'models/mock_reports_data.dart';
-import 'models/report_models.dart';
-import 'widgets/sales_kpi_cards.dart';
-import 'widgets/thermal_receipt_card.dart';
-import 'widgets/transaction_history_table.dart';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constants/app_colors.dart';
 import '../../core/database/app_database.dart';
+import '../auth/providers/auth_providers.dart';
+import '../auth/widgets/manager_pin_override_modal.dart';
 import 'models/report_models.dart';
 import 'providers/reports_providers.dart';
 import 'widgets/sales_kpi_cards.dart';
@@ -40,14 +33,31 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
     );
   }
 
-  void _onVoidTransaction(TransactionRecord record) {
+  void _onVoidTransaction(TransactionRecord record) async {
+    final currentUser = ref.read(currentUserProvider);
+    final isCashier = currentUser?.role.toLowerCase() == 'cashier';
+
+    int? authorizedUserId = currentUser?.id;
+
+    if (isCashier) {
+      final manager = await ManagerPinOverrideModal.show(
+        context,
+        actionTitle: 'Otorisasi Void Transaksi',
+        actionDescription: 'Kasir memerlukan otorisasi PIN Manager/Admin untuk membatalkan pesanan ${record.orderNumber}.',
+      );
+      if (manager == null) return;
+      authorizedUserId = manager.id;
+    }
+
+    if (!mounted) return;
+
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           title: Text('Void Transaksi ${record.orderNumber}'),
           content: Text(
-            'Apakah Anda yakin ingin membatalkan transaksi ${record.orderNumber} sebesar Rp ${record.totalAmount}? Aksi ini akan mengubah status di database dan dicatat dalam audit shift.',
+            'Apakah Anda yakin ingin membatalkan transaksi ${record.orderNumber} sebesar Rp ${record.totalAmount}? Aksi ini akan mengembalikan stok produk ke inventaris dan mengurangi saldo kas shift.',
           ),
           actions: [
             TextButton(
@@ -59,11 +69,15 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
               onPressed: () async {
                 Navigator.pop(context);
                 try {
-                  await ref.read(databaseProvider).updateOrderStatus(record.id, 'cancelled');
+                  await ref.read(databaseProvider).voidOrderTransaction(
+                        orderId: record.id,
+                        voidedByUserId: authorizedUserId ?? 1,
+                        reason: 'Void otorisasi kasir/manager',
+                      );
                   if (mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Transaksi ${record.orderNumber} berhasil dibatalkan (VOID).'),
+                        content: Text('Transaksi ${record.orderNumber} berhasil dibatalkan (VOID) dan stok dikembalikan!'),
                         backgroundColor: AppColors.error,
                         behavior: SnackBarBehavior.floating,
                       ),
@@ -81,7 +95,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                   }
                 }
               },
-              child: const Text('Ya, Void Transaksi'),
+              child: const Text('Ya, Void & Rollback Stok'),
             ),
           ],
         );
