@@ -15,7 +15,7 @@ final catalogProductsStreamProvider = StreamProvider<List<CatalogProduct>>((ref)
         categoryId: p.categoryId,
         categoryName: _mapCategoryName(p.categoryId),
         price: p.price,
-        stock: 12,
+        stock: p.stock,
         isAvailable: p.isAvailable,
         imageUrl: p.imagePath ?? 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80',
       );
@@ -55,6 +55,7 @@ class CatalogController {
           name: product.name,
           sku: product.sku,
           price: product.price,
+          stock: Value(product.stock),
           imagePath: Value(product.imageUrl),
           isAvailable: Value(product.isAvailable),
         ),
@@ -67,6 +68,7 @@ class CatalogController {
           name: product.name,
           sku: product.sku,
           price: product.price,
+          stock: product.stock,
           imagePath: product.imageUrl,
           isAvailable: product.isAvailable,
         ),
@@ -89,3 +91,4 @@ final catalogControllerProvider = Provider<CatalogController>((ref) {
   final db = ref.watch(databaseProvider);
   return CatalogController(db);
 });
+

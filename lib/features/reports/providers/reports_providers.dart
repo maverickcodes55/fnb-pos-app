@@ -149,3 +149,4 @@ final reportsSummaryProvider = Provider<ReportsSummary>((ref) {
     debitCount: debit,
   );
 });
+

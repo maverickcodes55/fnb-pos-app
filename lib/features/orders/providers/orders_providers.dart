@@ -25,3 +25,4 @@ final completedOrdersStreamProvider = Provider<AsyncValue<List<Order>>>((ref) {
     (list) => list.where((o) => o.status == 'completed' || o.status == 'cancelled').toList(),
   );
 });
+

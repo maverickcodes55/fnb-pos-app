@@ -144,3 +144,4 @@ class CartNotifier extends StateNotifier<CartState> {
 final cartNotifierProvider = StateNotifierProvider<CartNotifier, CartState>((ref) {
   return CartNotifier(ref);
 });
+

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#e0d9d3","primary-fixed":"#ffdbcf","surface-bright":"#fff8f4","primary":"#a43700","secondary-container":"#a0f399","error-container":"#ffdad6","on-surface":"#1e1b18","on-secondary-container":"#217128","surface-container":"#f4ece7","tertiary":"#805200","on-error":"#ffffff","on-surface-variant":"#5a4138","tertiary-container":"#a16800","inverse-surface":"#33302c","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","surface-container-high":"#eee7e1","on-primary-container":"#fffbff","surface-container-low":"#faf2ed","tertiary-fixed":"#ffddb5","on-primary-fixed-variant":"#802a00","on-secondary-fixed-variant":"#005312","primary-container":"#cd4700","primary-fixed-dim":"#ffb59a","surface-container-highest":"#e9e1dc","on-secondary":"#ffffff","surface-tint":"#a83900","tertiary-fixed-dim":"#ffb957","on-primary":"#ffffff","inverse-primary":"#ffb59a","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-container":"#fffbff","outline-variant":"#e3bfb2","secondary-fixed":"#a3f69c","background":"#fff8f4","outline":"#8f7066","on-tertiary-fixed":"#2a1800","on-secondary-fixed":"#002204","surface":"#fff8f4","inverse-on-surface":"#f7efea","surface-variant":"#e9e1dc","on-primary-fixed":"#380d00","secondary":"#1b6d24","on-background":"#1e1b18","secondary-fixed-dim":"#88d982","on-tertiary-fixed-variant":"#643f00"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin":"1.25rem","gutter":"1rem","space-xs":"0.25rem","gutter-lg":"1.5rem","space-lg":"1.5rem","gutter-sm":"0.75rem","space-xl":"2rem","margin-mobile":"0.75rem","space-md":"1rem","space-sm":"0.5rem"},fontFamily:{"label-sm":["Inter"],"body-lg":["Inter"],"label-lg":["Inter"],"numeric-total":["Inter"],"numeric-price":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-sm":["Inter"],"display-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"label-sm":["10px",{lineHeight:"12px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"18px",fontWeight:"600"}],"numeric-total":["30px",{lineHeight:"36px",fontWeight:"700"}],"numeric-price":["16px",{lineHeight:"20px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"display-md":["26px",{lineHeight:"32px",fontWeight:"700"}],"headline-sm":["16px",{lineHeight:"22px",fontWeight:"600"}],"display-lg":["32px",{lineHeight:"40px",fontWeight:"700"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-20 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md select-none"><div class="flex flex-col items-center gap-space-sm w-full"><a class="flex flex-col items-center justify-center p-space-xs" data-path="cashier-register" href="#"><img alt="Culinary POS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh9i0TjA9MFyxvfcixFK2MD0EQLG24FyTCiiU13h7x6kiGoUVw9w05zcIi5RveGnX_oRQdcvib9XaeHGOXh5u0J15im6c06SwAuiNr-oU9KgpdwaM1M6pIQ6h-MoInUYzF4-O79wngm70rDAtUDuJBmVnWNOlO6MNrmyNjna181Hlhp_wHp8FeJlJsDpI3BujqjggFKtrJuqDqfdDAIk_-_wgbGivpQv3huOlFrShi"/></a></div><nav class="flex flex-col items-center gap-space-xs w-full px-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm"><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="cashier-register" href="#"><span class="material-symbols-outlined text-2xl">point_of_sale</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Kasir</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="menu-management" href="#"><span class="material-symbols-outlined text-2xl">restaurant_menu</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Menu</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="categories" href="#"><span class="material-symbols-outlined text-2xl">grid_view</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Kategori</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="order-history" href="#"><span class="material-symbols-outlined text-2xl">receipt_long</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Pesanan</span></a><a class="w-16 h-16 rounded-lg flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-2xl">settings</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Pengaturan</span></a></nav><div class="flex flex-col items-center gap-space-sm w-full"><a class="w-16 h-12 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-all" data-path="pos-lock" href="#" title="Kunci Terminal"><span class="material-symbols-outlined text-xl">lock</span><span class="font-label-sm text-label-sm uppercase">Kunci</span></a><div class="relative flex items-center justify-center"><img alt="Profil" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary"></span></div></div></aside><div class="pl-20"><header class="fixed top-0 left-20 right-0 h-14 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg select-none"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Station 01 • Main Bar</span><span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider">Online</span></div><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-gutter" data-active-classes="text-primary font-bold"><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="cashier-register" href="#">Dine In</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="order-history" href="#">Bungkus / Takeaway</a><a class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" data-path="menu-management" href="#">Bar Kilat</a></nav><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="font-numeric-price text-numeric-price text-tertiary">Shift #1042</span><img alt="Profil" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8DakT4ajVpU05R2P0auRfBJn0RxOb4JJyEIy8SjuJWO6lct8IO8k6OaZ8GrvftFcufKrmS7VvRNzvLbWCw_f5KNLUMRT2_LtWbldptu4fF60If0ZPRPeM53hoOVOk0SJlfGwXIfl4i2VkAPa27yf1eJxfq0R9mJMV0oRci5dMGSh6S2T6goclJxTA512GLuADJvbVQ0crBIQrEu2WThl9toN8snoeDW9ytLiRvUvi"/></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Main Grid Workspace: Split 65% Catalog/Staff Directory vs 35% Staff RBAC Editor -->
+<div class="p-gutter-lg flex flex-col xl:flex-row gap-gutter-lg items-start">
+<!-- LEFT 65% COLUMN: Staff Directory & Control Matrix -->
+<div class="w-full xl:w-[65%] flex flex-col gap-space-lg">
+<!-- Top Action Bar & Metrics -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-display-md text-display-md text-on-surface">Manajemen Staf &amp; Kontrol Akses</span>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">RBAC V2</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-semibold text-on-surface">6 Staf Terdaftar</span>
+<span>•</span>
+<span class="text-secondary font-semibold">3 Sedang Shift (On Shift)</span>
+<span>•</span>
+<span>Terminal: Station 01</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="h-12 px-space-md rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors flex items-center gap-space-xs font-label-lg text-label-lg active:scale-95" id="open-override-btn">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+<span>Tes Override Manajer</span>
+</button>
+<button class="h-12 px-space-lg rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-all shadow-sm flex items-center gap-space-xs font-label-lg text-label-lg active:scale-95">
+<span class="material-symbols-outlined text-xl">person_add</span>
+<span>+ Tambah Staf Baru</span>
+</button>
+</div>
+</div>
+<!-- Filter, Tabs, & Quick Search -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-xs">
+<!-- Filter Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
+<button class="px-space-md h-10 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md transition-colors whitespace-nowrap shadow-sm">Semua (6)</button>
+<button class="px-space-md h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap">Admin (1)</button>
+<button class="px-space-md h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap">Manajer (2)</button>
+<button class="px-space-md h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap">Kasir (3)</button>
+</div>
+<!-- Quick Search Bar -->
+<div class="relative w-full md:w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+<input class="w-full h-11 pl-10 pr-12 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary shadow-inner" placeholder="Cari nama, NIP, atau peran..." type="text"/>
+<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[10px] font-mono rounded bg-surface-container-high text-on-surface-variant">⌘K</kbd>
+</div>
+</div>
+</div>
+<!-- Interactive Staff Data Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider select-none">
+<th class="py-space-md px-space-lg font-bold">Staf &amp; Identitas</th>
+<th class="py-space-md px-space-md font-bold">Peran (RBAC)</th>
+<th class="py-space-md px-space-md font-bold">Status PIN</th>
+<th class="py-space-md px-space-md font-bold">Shift Kerja</th>
+<th class="py-space-md px-space-md font-bold text-center">Status Akun</th>
+<th class="py-space-md px-space-lg font-bold text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y divide-surface-container-high">
+<!-- Row 1: Andi Pratama (Active Selected) -->
+<tr class="bg-primary-fixed/30 hover:bg-primary-fixed/40 transition-colors cursor-pointer group" onclick="selectStaff('Andi Pratama', 'KSR-001', 'Kasir', 'Aktif Bekerja')">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm ring-2 ring-primary" data-alt="Portrait photo of a young professional Indonesian male barista wearing a clean black culinary apron with warm neutral lighting in an artisan coffee shop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0FOj755ISVPVLo5WbMMbnIh1nZwRk8DCaXY_wx5lclR9u20o5XhoLnOIeS69iu7frPHKZEVTB6lSomZX8ucm_UMb9ZiMazzXbT4H1x6m6z5L-zM8QNJ27DKnsvApEwKGcKNvlKUbsUWCngmhf-Z3SObYmgJTfWxRbeJXrKeQ5Qd9yqAJCRCjF6vY274wpLw80icIN-PAUacRW7BDzQXYbuUzyjuC-L067hHoJk-AE"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
+                        Andi Pratama
+                        <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+</span>
+<span class="font-mono text-body-sm text-on-surface-variant">KSR-001 • Main Register</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">point_of_sale</span>
+                    Kasir POS
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-mono text-tertiary">
+<span class="tracking-widest font-bold">••••••</span>
+<button class="text-xs text-primary font-label-sm hover:underline ml-1" title="Ubah PIN">Reset</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                    On Shift
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer" onclick="event.stopPropagation()">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:border-surface-dim after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-space-md px-space-lg text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors" title="Edit Staf">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-error hover:bg-error-container hover:text-on-error-container transition-colors" title="Hapus Staf">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Sarah Kurniawan -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group" onclick="selectStaff('Sarah Kurniawan', 'KSR-002', 'Kasir', 'Libur')">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" data-alt="Portrait of an Indonesian woman cashier with a tidy hijab and friendly expression in a modern culinary bistro environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ7onFhVVc5WUFqYybYOy9A50yujph2FQCvplwz8iuapByF-uKQTeDVNUaG-0-81sQBXGsCbnSg0QNItSM3K9MVtRVVrC48rkmal0Hs2RjvRyqd1QEl7coXEDsY8QzASKnCUjOi-C1RmXORssV95x4wHYS7vxkX-hiPxShZXi5Ncl0lXIVgTt5hjQpMbr_fOCMXV81c12VAKTpcT-InGJTJ-4uO0Y1Kp4MoJ18xmDK"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-surface-dim ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Sarah Kurniawan</span>
+<span class="font-mono text-body-sm text-on-surface-variant">KSR-002 • Front Line</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">point_of_sale</span>
+                    Kasir POS
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-mono text-tertiary">
+<span class="tracking-widest font-bold">••••••</span>
+<button class="text-xs text-primary font-label-sm hover:underline ml-1">Reset</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase">
+                    Off Duty
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer" onclick="event.stopPropagation()">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:border-surface-dim after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-space-md px-space-lg text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-error hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Budi Santoso (Manager, On Shift) -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group" onclick="selectStaff('Budi Santoso', 'MGR-001', 'Manajer Toko', 'Aktif Bekerja')">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" data-alt="Portrait of experienced Indonesian restaurant operations manager in smart casual hospitality apron holding a tablet in warm kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYbN-8gdhB5RT-rTnPVkXgEG--UNIytp5JFl7K5mJdTXAEHomqCygLP6fs-ZTIn-dEMwytNbPy74CaYh6lLWReBo3HQN0d5V4baP-Vpl_1lLmEBUqC9mhuGE4gC-ymQ9rLvmxhHA9J4v0zlWtcGyz-luMLczhMnCdJlbAQrUwqG2xHghSHigE2pPukmkTh6ERZ2neev0zt6KBm9GyBsJh_asaj8bimoedlZ-PrtWgN"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Budi Santoso</span>
+<span class="font-mono text-body-sm text-on-surface-variant">MGR-001 • Floor Lead</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                    Manajer Toko
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-mono text-secondary">
+<span class="tracking-widest font-bold">••••••</span>
+<span class="material-symbols-outlined text-sm text-secondary" title="PIN Override Aktif">lock</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                    On Shift
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer" onclick="event.stopPropagation()">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:border-surface-dim after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-space-md px-space-lg text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-error hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Siti Rahma (Supervisor) -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group" onclick="selectStaff('Siti Rahma', 'SPV-002', 'Supervisor', 'Libur')">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" data-alt="Portrait of an Asian female supervisor wearing clean black hospitality uniform in a brightly lit bakery cafe kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQPXZYJbD1uGVJUeodCt27mtcqWrDhE2C3J6naELTZh8lJbCmlpzeDxHWylISSjTR2LqW-lKhGC81EI1b-Iib_3TRW0d4t-3ZWQRRAE_ZifgtAdsaWsPJOXWvEz373u54OMTfJTu3S9H1bz8TjEsC1wEuNal9kZtqykixRyz7rcRcYa1ADePUH5c0HJS9JJgKdtNPoQO0DB4AMYvJkQ3HiULlW8CnFCQcGxxO9OPoU"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-surface-dim ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Siti Rahma</span>
+<span class="font-mono text-body-sm text-on-surface-variant">SPV-002 • Kitchen &amp; Bar</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">badge</span>
+                    Supervisor
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-mono text-secondary">
+<span class="tracking-widest font-bold">••••••</span>
+<span class="material-symbols-outlined text-sm text-secondary">lock</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase">
+                    Off Duty
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer" onclick="event.stopPropagation()">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:border-surface-dim after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-space-md px-space-lg text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-error hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Dimas Setiawan -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group" onclick="selectStaff('Dimas Setiawan', 'BAR-003', 'Kasir', 'Aktif Bekerja')">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm" data-alt="Close up portrait of Indonesian male barista with tattoos and leather apron standing in front of espresso machine with warm ambient glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-EK8nRpnPMoy_77mB3WJzO0pqFno3bHBZAOPRWpE96KTKvFNIHo4xstcSueXB5Iz5rc3ikxsWquEvk1SBIRokUHZyhQThWnUYkMvixvHbs851RRTe8sCQfKEk_64YzP_dPyMOphEVem7ozgxv5x8W0dXPhlzq-Nt2ydK3NmdMNHE8kBFwSPzCqxZ3UJ--2lmwyMOj5xifGHMgYlMomydlHf2WHu6n-P4pqMHMkKXS"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Dimas Setiawan</span>
+<span class="font-mono text-body-sm text-on-surface-variant">BAR-003 • Barista Lead</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">local_cafe</span>
+                    Kasir &amp; Barista
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-mono text-tertiary">
+<span class="tracking-widest font-bold">••••••</span>
+<button class="text-xs text-primary font-label-sm hover:underline ml-1">Reset</button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                    On Shift
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer" onclick="event.stopPropagation()">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:border-surface-dim after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</td>
+<td class="py-space-md px-space-lg text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-error hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Admin Sistem -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group" onclick="selectStaff('Admin Sistem (Pusat)', 'ADM-999', 'Admin Sistem', 'Aktif Bekerja')">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-sm font-headline-sm">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Admin Sistem</span>
+<span class="font-mono text-body-sm text-on-surface-variant">ADM-999 • Hak Penuh Root</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">shield</span>
+                    Admin Utama
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-mono text-primary">
+<span class="tracking-widest font-bold">••••••</span>
+<span class="material-symbols-outlined text-sm text-primary">key</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase">
+                    Aktif Terus
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer" onclick="event.stopPropagation()">
+<input checked="" class="sr-only peer" disabled="" type="checkbox"/>
+<div class="w-10 h-5 bg-secondary peer-focus:outline-none rounded-full opacity-60 after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4"></div>
+</label>
+</td>
+<td class="py-space-md px-space-lg text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between font-label-md text-label-md text-on-surface-variant">
+<span>Menampilkan 1–6 dari 6 staf</span>
+<div class="flex items-center gap-space-xs">
+<button class="h-9 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors disabled:opacity-40" disabled="">Sebelumnya</button>
+<span class="px-2 font-bold text-on-surface">1</span>
+<button class="h-9 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors disabled:opacity-40" disabled="">Selanjutnya</button>
+</div>
+</div>
+</div>
+<!-- Quick Tips / Hardware POS Synced Banner -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">fingerprint</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Sinkronisasi Kartu RFID &amp; Biometrik Kasir</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pembaca kartu NFC terdeteksi aktif pada Station 01. Tap kartu staf untuk login cepat.</span>
+</div>
+</div>
+<button class="h-10 px-space-md rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container hover:text-primary transition-all font-label-md text-label-md whitespace-nowrap shadow-sm">
+          Konfigurasi Reader
+        </button>
+</div>
+</div>
+<!-- RIGHT 35% COLUMN: Staff Profile Editor & Role-Based Access Matrix -->
+<div class="w-full xl:w-[35%] flex flex-col gap-space-md sticky top-16">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Editor Header -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="relative group cursor-pointer">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm ring-2 ring-primary" data-alt="Indonesian young male barista in dark apron smiling warm portrait" id="detail-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi7gZZyJDoDh69Qn2mJXU7zNGylTKeaTdJoXnPS4ArIcD0oBFChYdgX7M42iHns_Esw-ggzwuzz6k5QkPKJDNw9eNrxRRX08hEmtii74_aXLmBQrPpclcrNDjofLgCtZtbwISzJQISxRUNh9DnO9bj_YqxIyDg84R_joUv4jYDlqkvIl2c8zrns8FWJkaAKWI2vZ3rJGf-5-wvQVkTns-desFXpgHlh0EkRbakjhm_"/>
+<div class="absolute inset-0 bg-inverse-surface/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-surface-bright text-lg">photo_camera</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-display-md text-headline-lg text-on-surface leading-snug" id="detail-name">Andi Pratama</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase" id="detail-status">Aktif Bekerja</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm" id="detail-nip">NIP: KSR-001</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-container text-2xl">manage_accounts</span>
+</div>
+<!-- Form Edit Staf -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Field: Nama Lengkap -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">Nama Lengkap *</label>
+<input class="h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none shadow-inner" id="input-nama" type="text" value="Andi Pratama"/>
+</div>
+<!-- Field: ID Karyawan & Role -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">ID Karyawan / NIP</label>
+<input class="h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-mono text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none shadow-inner" id="input-nip" type="text" value="KSR-001"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface">Peran / Hak Akses</label>
+<select class="h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer shadow-inner" id="role-selector">
+<option selected="" value="kasir">Kasir POS</option>
+<option value="supervisor">Supervisor</option>
+<option value="manajer">Manajer Toko</option>
+<option value="admin">Admin Sistem</option>
+</select>
+</div>
+</div>
+<!-- Field: PIN Otorisasi 6-Digit -->
+<div class="flex flex-col gap-1 p-space-md rounded-lg bg-surface-container-high/60">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">pin</span>
+                PIN Kasir 6-Digit (Login Terminal)
+              </label>
+<button class="font-label-sm text-label-sm text-primary hover:underline" id="toggle-pin-btn" type="button">Tampilkan PIN</button>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<div class="relative flex-1">
+<input class="w-full h-12 tracking-widest text-center font-mono font-numeric-total text-headline-lg rounded-lg bg-surface-container-lowest text-on-surface focus:ring-2 focus:ring-primary focus:outline-none shadow-inner" id="pin-input" maxlength="6" type="password" value="842109"/>
+</div>
+<button class="h-12 px-space-md rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-highest transition-colors font-label-md text-label-md whitespace-nowrap active:scale-95">
+                Acak PIN Baru
+              </button>
+</div>
+<span class="font-body-sm text-[11px] text-on-surface-variant mt-0.5">Digunakan saat berganti giliran kasir atau membuka kunci layar Station 01.</span>
+</div>
+<!-- RBAC Matrix Dynamic Permissions Indicator -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Izin Hak Akses Otomatis:</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm" id="badge-current-role">Peran Kasir</span>
+</div>
+<!-- Allowed Permissions List -->
+<div class="p-space-md rounded-lg bg-secondary-container/20 flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Diizinkan (Granted)</span>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Akses Kasir POS &amp; Buat Pesanan Dine-In/Bungkus</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Buka &amp; Tutup Shift Kasir Sendiri (Hitung Uang Kaswal)</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Cetak Ulang Struk Pesanan Pelanggan</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Terapkan Diskon Standar (Batas Maksimal 10%)</span>
+</div>
+</div>
+<!-- Restricted / Blocked Permissions -->
+<div class="p-space-md rounded-lg bg-error-container/30 flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error font-bold flex items-center justify-between">
+<span>Dibatasi / Butuh Override</span>
+<span class="text-[10px] text-error font-normal">Wajib PIN Manajer</span>
+</span>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Void / Batalkan Tagihan Setelah Struk Tercetak</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Buka Laci Kas Uang Manual (No-Sale Drawer Kick)</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Ubah Harga Menu, Resep Bahan, atau Inventaris</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Ekspor Laporan Keuangan Z-Report Shift Akhir</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel Action Footer -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between gap-space-sm">
+<button class="h-12 px-space-md rounded-lg text-error hover:bg-error-container hover:text-on-error-container font-label-md text-label-md transition-colors active:scale-95">
+            Hapus Staf
+          </button>
+<div class="flex items-center gap-space-sm">
+<button class="h-12 px-space-md rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-colors active:scale-95">
+              Batal
+            </button>
+<button class="h-12 px-space-lg rounded-lg bg-primary-container text-on-primary-container hover:bg-primary font-label-lg text-label-lg shadow-sm transition-all active:scale-95 flex items-center gap-1.5" onclick="triggerSaveNotification()">
+<span class="material-symbols-outlined text-lg">save</span>
+<span>Simpan Profil</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FLOATING MANAGER OVERRIDE MODAL PREVIEW (Security Prompt Overlay) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/50 backdrop-blur-sm p-4 hidden" id="override-modal">
+<div class="relative w-full max-w-md bg-surface-container-lowest rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-150">
+<!-- Top Alert Ribbon -->
+<div class="bg-primary-container p-space-md text-on-primary-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm leading-tight">Otorisasi Manajer Diperlukan</span>
+<span class="font-body-sm text-[11px] opacity-90">Tindakan Kasir: Void Pesanan #ORD-8491</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-black/10 flex items-center justify-center transition-colors" id="close-override-btn">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Modal Content Body -->
+<div class="p-space-lg flex flex-col items-center text-center gap-space-md">
+<!-- Target Officer Card -->
+<div class="flex items-center gap-space-md p-space-sm px-space-md rounded-full bg-surface-container-high w-full justify-between">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-secondary" data-alt="Manager face portrait Budi Santoso in modern restaurant ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVCxRX474fQseaU2jugf6FjSdOdekk_WxEB_w6FzXy90hqWWXSoNG-AllIs5NWyCwiMwPfQE4cZhzT1_waERitVAohlCCmnQVEWFJR-5PhBjqkXzZGFx-EM72pK35BDck8OrCGzMtLi4iqlg1ziewQDMmI6LlojHA7Ci6tc0j7ch4Baej7v6kC1YEgjUJ_SoNLnYMpJSVMnPguOreHdETsoKV5yTjlP1rDntvDE2vY"/>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md text-on-surface">Budi Santoso (MGR-001)</span>
+<span class="font-body-sm text-[11px] text-secondary font-semibold">Manajer Bertugas • Station 01</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-md text-headline-md text-on-surface">Masukkan 6-Digit PIN Manajer</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+            Aksi pembatalan tagihan <span class="font-bold text-on-surface">Rp 148.500</span> akan dicatat pada Log Audit Kasir Station 01.
+          </p>
+</div>
+<!-- 6-PIN Dots Display -->
+<div class="flex items-center justify-center gap-space-sm my-1">
+<div class="w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-container" id="dot-1"></div>
+<div class="w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-container" id="dot-2"></div>
+<div class="w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-container" id="dot-3"></div>
+<div class="w-4 h-4 rounded-full bg-surface-container-highest" id="dot-4"></div>
+<div class="w-4 h-4 rounded-full bg-surface-container-highest" id="dot-5"></div>
+<div class="w-4 h-4 rounded-full bg-surface-container-highest" id="dot-6"></div>
+</div>
+<!-- Touch Numpad Matrix for Terminal -->
+<div class="grid grid-cols-3 gap-space-xs w-full max-w-xs mt-1">
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">1</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">2</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">3</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">4</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">5</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">6</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">7</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">8</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">9</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-error active:scale-95 transition-all shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">backspace</span>
+</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-headline-md text-headline-md text-on-surface active:scale-95 transition-all shadow-sm">0</button>
+<button class="h-12 rounded-lg bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-on-surface-variant active:scale-95 transition-all shadow-sm">C</button>
+</div>
+<!-- Action Confirmation -->
+<div class="flex items-center gap-space-sm w-full mt-2">
+<button class="flex-1 h-12 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors active:scale-95" id="cancel-override-btn">
+            Batalkan
+          </button>
+<button class="flex-1 h-12 rounded-lg bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant font-label-lg text-label-lg shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5" id="confirm-override-btn">
+<span class="material-symbols-outlined text-lg">check</span>
+<span>Konfirmasi Void</span>
+</button>
+</div>
+</div>
+<!-- Terminal Security Notice Footer -->
+<div class="bg-surface-container-high/60 px-space-lg py-2.5 flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Kamera terminal mengambil snapshot audit</span>
+<span class="font-mono text-secondary font-bold">SSL 256-BIT OK</span>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-md rounded-xl shadow-xl flex items-center gap-space-md opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4" id="save-toast">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm">Perubahan Tersimpan</span>
+<span class="font-body-sm text-body-sm text-surface-dim">Data staf &amp; hak akses telah disinkronkan ke seluruh terminal POS.</span>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic staff row selection
+  function selectStaff(name, nip, role, status) {
+    document.getElementById('detail-name').innerText = name;
+    document.getElementById('detail-nip').innerText = 'NIP: ' + nip;
+    document.getElementById('detail-status').innerText = status;
+    document.getElementById('input-nama').value = name;
+    document.getElementById('input-nip').value = nip;
+
+    const selector = document.getElementById('role-selector');
+    const badgeRole = document.getElementById('badge-current-role');
+    
+    if (role.includes('Manajer')) {
+      selector.value = 'manajer';
+      badgeRole.innerText = 'Peran Manajer (Full POS)';
+    } else if (role.includes('Admin')) {
+      selector.value = 'admin';
+      badgeRole.innerText = 'Peran Admin Sistem';
+    } else if (role.includes('Supervisor')) {
+      selector.value = 'supervisor';
+      badgeRole.innerText = 'Peran Supervisor';
+    } else {
+      selector.value = 'kasir';
+      badgeRole.innerText = 'Peran Kasir';
+    }
+  }
+
+  // Toggle PIN visibility
+  const togglePinBtn = document.getElementById('toggle-pin-btn');
+  const pinInput = document.getElementById('pin-input');
+  if (togglePinBtn && pinInput) {
+    togglePinBtn.addEventListener('click', () => {
+      if (pinInput.type === 'password') {
+        pinInput.type = 'text';
+        togglePinBtn.innerText = 'Sembunyikan PIN';
+      } else {
+        pinInput.type = 'password';
+        togglePinBtn.innerText = 'Tampilkan PIN';
+      }
+    });
+  }
+
+  // Override Modal Toggle
+  const openModalBtn = document.getElementById('open-override-btn');
+  const closeModalBtn = document.getElementById('close-override-btn');
+  const cancelModalBtn = document.getElementById('cancel-override-btn');
+  const confirmModalBtn = document.getElementById('confirm-override-btn');
+  const modal = document.getElementById('override-modal');
+
+  function showModal() {
+    modal.classList.remove('hidden');
+  }
+
+  function hideModal() {
+    modal.classList.add('hidden');
+  }
+
+  if (openModalBtn) openModalBtn.addEventListener('click', showModal);
+  if (closeModalBtn) closeModalBtn.addEventListener('click', hideModal);
+  if (cancelModalBtn) cancelModalBtn.addEventListener('click', hideModal);
+  if (confirmModalBtn) {
+    confirmModalBtn.addEventListener('click', () => {
+      hideModal();
+      triggerSaveNotification('Otorisasi override diterima: Void Pesanan Berhasil disetujui');
+    });
+  }
+
+  // Toast feedback trigger
+  function triggerSaveNotification(customMsg) {
+    const toast = document.getElementById('save-toast');
+    if (toast) {
+      if (customMsg) {
+        toast.querySelector('.font-headline-sm').innerText = customMsg;
+      } else {
+        toast.querySelector('.font-headline-sm').innerText = 'Perubahan Tersimpan';
+      }
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3500);
+    }
+  }
+</script></main></div></body></html>
