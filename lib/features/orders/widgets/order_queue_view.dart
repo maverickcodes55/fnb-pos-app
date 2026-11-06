@@ -219,3 +219,4 @@ class OrderQueueView extends StatelessWidget {
     );
   }
 }
+
