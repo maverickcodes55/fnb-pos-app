@@ -407,3 +407,4 @@ class CatalogTable extends StatelessWidget {
     }
   }
 }
+

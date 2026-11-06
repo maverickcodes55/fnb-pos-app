@@ -562,3 +562,4 @@ class _ProductFormDrawerState extends State<ProductFormDrawer> {
     );
   }
 }
+

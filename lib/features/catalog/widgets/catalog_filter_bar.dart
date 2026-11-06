@@ -235,3 +235,4 @@ class CatalogFilterBar extends StatelessWidget {
     );
   }
 }
+

@@ -93,3 +93,4 @@ final List<CatalogProduct> initialCatalogProducts = [
     imageUrl: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&q=80',
   ),
 ];
+
